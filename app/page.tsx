@@ -86,6 +86,13 @@ export default function Home() {
           </button>
         </Link>
       </div>
+      <div className="flex justify-center pt-10 w-[95%] px-5 p-1 mt-5 rounded-lg h-50 mx-auto">
+        {" "}
+        <div className="flex text-lg text-gray-900">
+          Become a web developer in short and simple to understand way without
+          the need for a laptop for the price from N0 to N10000
+        </div>
+      </div>
       <div className="w-full overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-white mt-5">
         <div className="shrink- font-semibold flex w-auto slide-animation mr-5">
           <div className=" flex shrink-0 mx-5">
@@ -128,13 +135,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center w-[95%] px-5 p-1 mt-5 rounded-lg  bg-white h-50 mx-auto">
-        {" "}
-        <div className="flex text-md  text-gray-900 text-center">
-          Become a web developer in short and simple to understand way without
-          the need for a laptop for the price from N0 to N10000
-        </div>
-      </div>
+
       <div className="w-[95%] my-6 rounded-2xl mx-auto h-12 flex justify-center items-center bg-black font-semibold text-gray-50  text-center">
         Courses
       </div>
