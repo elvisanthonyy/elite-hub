@@ -26,7 +26,10 @@ const handler = async (req: Request) => {
       });
     }
     const newDate = new Date(Date.now());
-    if (newDate > user?.verificationTokenExpiry) {
+    if (
+      !user?.verificationTokenExpiry ||
+      newDate > user?.verificationTokenExpiry
+    ) {
       return NextResponse.json({
         status: "error",
         message: "link expired",

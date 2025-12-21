@@ -4,7 +4,7 @@ export interface IUserCourse extends Document {
   _id: Types.ObjectId;
   courseId: string;
   courseName: string;
-  paid?: boolean;
+  paid: boolean;
 }
 
 export interface IUser extends Document {
@@ -12,9 +12,9 @@ export interface IUser extends Document {
   email: string;
   password: string;
   isVerified: boolean;
-  verificationToken?: string;
+  verificationToken: string;
   verificationTokenExpiry?: Date;
-  courses?: Types.DocumentArray<IUserCourse>;
+  courses: Types.DocumentArray<IUserCourse>;
 }
 
 const userCourseSchema = new mongoose.Schema<IUserCourse>({
