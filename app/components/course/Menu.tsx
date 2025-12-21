@@ -6,7 +6,7 @@ interface ChildProps {
 const Menu = ({ isMenuOpen }: ChildProps) => {
   return (
     <div
-      className={`trasition-all ease-in-out duration-600 absolute grid py-5 place-items-center  ${
+      className={`trasition-all shadow-2xl ease-in-out duration-600 absolute grid py-5 place-items-center  ${
         isMenuOpen
           ? "opacity-100 translate-y-26"
           : "-translate-y-1000 opacity-100"
