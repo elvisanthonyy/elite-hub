@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import DashboardNav from "../components/dashboard/DashboardNav";
 import DashboardMain from "../components/dashboard/DashboardMain";
 import { cookies } from "next/headers";
+import dbConnect from "@/libs/dbConnect";
 
 export const metadata = {
   title: "Dashboard",
@@ -12,6 +13,7 @@ export const metadata = {
 const baseURL = process.env.BASE_URL;
 
 const page = async () => {
+  await dbConnect();
   const cookieStore = cookies();
   const session = await getServerSession(authOptions);
 

@@ -12,11 +12,9 @@ export interface IUser extends Document {
   email: string;
   password: string;
   isVerified: boolean;
-  courseType: string;
-  paid: boolean;
-  verificationToken: string;
+  verificationToken?: string;
   verificationTokenExpiry?: Date;
-  courses: Types.DocumentArray<IUserCourse>;
+  courses?: Types.DocumentArray<IUserCourse>;
 }
 
 const userCourseSchema = new mongoose.Schema<IUserCourse>({
@@ -53,9 +51,6 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Boolean,
       required: true,
       default: false,
-    },
-    courseType: {
-      type: String,
     },
     verificationToken: {
       type: String,

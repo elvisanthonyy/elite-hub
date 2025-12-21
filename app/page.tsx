@@ -156,17 +156,34 @@ export default function Home() {
         ref={slideRef}
         className="flex  hidden-scroll overflow-hidden w-full py-5 mb-10 min-h-65 h-auto bg-white/50"
       >
-        <div className="w-full" ref={(el) => (slideRefs.current[0] = el)}>
+        <div
+          className="w-full"
+          ref={(el) => {
+            slideRefs.current[0] = el;
+          }}
+        >
           <TestimonialComp name="Joseph" />
         </div>
-        <div ref={(el) => (slideRefs.current[1] = el)}>
+        <div
+          ref={(el) => {
+            slideRefs.current[1] = el;
+          }}
+        >
           <TestimonialComp name="Sarah" />
         </div>
 
-        <div ref={(el) => (slideRefs.current[2] = el)}>
+        <div
+          ref={(el) => {
+            slideRefs.current[2] = el;
+          }}
+        >
           <TestimonialComp name="David" />
         </div>
-        <div ref={(el) => (slideRefs.current[3] = el)}>
+        <div
+          ref={(el) => {
+            slideRefs.current[3] = el;
+          }}
+        >
           <TestimonialComp name="Emma" />
         </div>
       </div>

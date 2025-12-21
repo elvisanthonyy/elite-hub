@@ -4,6 +4,13 @@ import dbConnect from "@/libs/dbConnect";
 import bcrypt from "bcryptjs";
 import { User } from "@/models/user";
 
+interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  isVerified: boolean;
+}
+
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   providers: [
@@ -13,7 +20,7 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      authorize: async (credentials): Promise<IUser | null> => {
         await dbConnect();
         if (!credentials?.email) {
           return null;
@@ -47,7 +54,7 @@ export const authOptions: NextAuthOptions = {
           id: user._id.toString(),
           name: user.name,
           email: user.email,
-          courses: user.courses,
+          isVerified: user.isVerified,
         };
       },
     }),
@@ -71,7 +78,6 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.courses = user.courses;
       }
       return token;
     },
@@ -80,7 +86,6 @@ export const authOptions: NextAuthOptions = {
         const user = await User.findOne({ email: session.user.email });
         if (user) {
           session.user.id = token.id;
-          session.user.courses = token.courses;
         }
       }
       return session;
