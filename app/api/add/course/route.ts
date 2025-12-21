@@ -30,7 +30,7 @@ const handler = async (req: Request) => {
       });
     }
 
-    user?.courses.push({ courseId: courseId, courseName });
+    user?.courses?.push({ courseId: courseId, courseName });
     await user.save();
     return NextResponse.json({
       status: "okay",
