@@ -19,7 +19,7 @@ const LoginMain = () => {
   const { register, handleSubmit } = useForm<FormFields>();
   const [message, setMessage] = useState("");
 
-  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
     const result = await signIn("credentials", {
       email: data.email,
       password: data.password,

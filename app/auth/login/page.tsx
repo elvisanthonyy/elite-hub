@@ -1,4 +1,4 @@
-import React from "react";
+import { Suspense } from "react";
 import LoginMain from "@/app/components/login/LoginMain";
 import Footer from "../../components/footer/Footer";
 
@@ -9,7 +9,9 @@ export const metadata = {
 const page = () => {
   return (
     <div className="w-full h-dvh flex flex-col justify-center items-center">
-      <LoginMain />
+      <Suspense fallback={<div>Loading</div>}>
+        <LoginMain />
+      </Suspense>
       <Footer />
     </div>
   );
