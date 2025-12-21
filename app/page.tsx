@@ -66,7 +66,7 @@ export default function Home() {
     <div className="relative">
       <NavBar name="home" />
       <div className="flex relative text-white text-5xl justify-center items-center w-full h-140 bg-black">
-        <div className="absolute w-full h-full bg-black/70"></div>
+        <div className="absolute w-full h-full bg-black/80"></div>
         <div className="absolute hub-text text-center left-[50%] top-[50%] -translate-[50%]">
           ELITE HUB
         </div>
@@ -81,7 +81,7 @@ export default function Home() {
           className="flex cursor-pointer w-auto h-auto absolute bottom-15"
           href={"/auth/login"}
         >
-          <button className="cursor-pointer text-sm rounded-lg bg-linear-to-br from-blue-700 to-blue-500 px-11 py-3">
+          <button className="cursor-pointer text-sm rounded-4xl bg-white text-black px-20 py-5">
             Log In
           </button>
         </Link>

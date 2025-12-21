@@ -6,11 +6,11 @@ interface ChildProps {
 const Menu = ({ isMenuOpen }: ChildProps) => {
   return (
     <div
-      className={`trasition-all ease-in-out duration-600 absolute grid pt-30 place-items-center  ${
+      className={`trasition-all ease-in-out duration-600 absolute grid pt-20 place-items-center  ${
         isMenuOpen
-          ? "opacity-100 translate-y-0"
+          ? "opacity-100 translate-y-7"
           : "-translate-y-1000 opacity-100"
-      } z-15 flex top-0 left-0 h-dvh w-full bg-white`}
+      } z-15 flex top-0 -translate-x-[50%] rounded-4xl h-120 w-[90%] left-[50%] bg-white`}
     >
       <Link href={"/"}>
         <div>Home</div>
