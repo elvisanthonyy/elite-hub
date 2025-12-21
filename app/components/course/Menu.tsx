@@ -10,7 +10,7 @@ const Menu = ({ isMenuOpen }: ChildProps) => {
         isMenuOpen
           ? "opacity-100 translate-y-26"
           : "-translate-y-1000 opacity-100"
-      } z-15 flex top-0 -translate-x-[50%] rounded-4xl h-110 w-[90%] left-[50%] bg-white`}
+      } z-15 flex top-0 text-xl font-semibold text-gray-900 -translate-x-[50%] rounded-4xl h-110 w-[90%] left-[50%] bg-white`}
     >
       <Link href={"/"}>
         <div>Home</div>

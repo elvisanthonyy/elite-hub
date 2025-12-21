@@ -81,13 +81,13 @@ export default function Home() {
           className="flex cursor-pointer w-auto h-auto absolute bottom-15"
           href={"/auth/login"}
         >
-          <button className="cursor-pointer text-sm rounded-4xl bg-white text-black px-20 py-5">
-            Log In
+          <button className="cursor-pointer text-[16px] rounded-4xl bg-white text-black px-20 py-6">
+            Get Started
           </button>
         </Link>
       </div>
       <div className="w-full overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-white mt-5">
-        <div className="shrink-0 flex w-auto slide-animation mr-5">
+        <div className="shrink- font-semibold flex w-auto slide-animation mr-5">
           <div className=" flex shrink-0 mx-5">
             Start Your web Development Journey today
           </div>
@@ -130,12 +130,12 @@ export default function Home() {
       </div>
       <div className="flex justify-center items-center w-[95%] px-5 p-1 mt-5 rounded-lg  bg-white h-50 mx-auto">
         {" "}
-        <div className="flex text-sm text-gray-900 text-center">
+        <div className="flex text-md  text-gray-900 text-center">
           Become a web developer in short and simple to understand way without
           the need for a laptop for the price from N0 to N10000
         </div>
       </div>
-      <div className="w-full font-semibold text-gray-900 text-lg my-3 mt-3 text-center">
+      <div className="w-[95%] my-6 rounded-4xl mx-auto h-12 flex justify-center items-center bg-white font-semibold text-gray-900 text-xl  text-center">
         Courses
       </div>
       <div className="flex items-center min-h-65 hidden-scroll mb-3 pb-5 w-[95%] mx-auto overflow-x-scroll">
