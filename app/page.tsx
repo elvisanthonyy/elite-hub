@@ -65,8 +65,8 @@ export default function Home() {
   return (
     <div className="relative">
       <NavBar name="home" />
-      <div className="flex relative text-white text-5xl justify-center items-center w-full h-130 bg-black">
-        <div className="absolute w-full h-full bg-black/90"></div>
+      <div className="flex relative text-white text-5xl justify-center items-center w-full h-140 bg-black">
+        <div className="absolute w-full h-full bg-black/70"></div>
         <div className="absolute hub-text text-center left-[50%] top-[50%] -translate-[50%]">
           ELITE HUB
         </div>
