@@ -93,7 +93,7 @@ export default function Home() {
           the need for a laptop for the price from N0 to N10000
         </div>
       </div>
-      <div className="w-[95%] mx-auto overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-white mt-5">
+      <div className="w-[95%] rounded-xl mx-auto overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-white mt-5">
         <div className="shrink- font-semibold flex w-auto slide-animation mr-5">
           <div className=" flex shrink-0 mx-5">
             Start Your web Development Journey today
