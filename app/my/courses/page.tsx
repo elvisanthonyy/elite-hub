@@ -5,6 +5,8 @@ import NavBar from "@/app/components/nav/NavBar";
 import { cookies } from "next/headers";
 import MyCoursesMain from "@/app/components/course/MyCoursesMain";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "My Courses",
 };

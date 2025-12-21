@@ -1,7 +1,8 @@
 import AllCoursesMain from "@/app/components/course/AllCoursesMain";
 import NavBar from "@/app/components/nav/NavBar";
-import getSession from "@/libs/getSession";
 import dbConnect from "@/libs/dbConnect";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "All Courses",
