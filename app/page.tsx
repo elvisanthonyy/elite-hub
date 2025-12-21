@@ -135,7 +135,7 @@ export default function Home() {
           the need for a laptop for the price from N0 to N10000
         </div>
       </div>
-      <div className="w-[95%] my-6 rounded-4xl mx-auto h-12 flex justify-center items-center bg-white font-semibold text-gray-900 text-xl  text-center">
+      <div className="w-[95%] my-6 rounded-2xl mx-auto h-12 flex justify-center items-center bg-black font-semibold text-gray-50  text-center">
         Courses
       </div>
       <div className="flex items-center min-h-65 hidden-scroll mb-3 pb-5 w-[95%] mx-auto overflow-x-scroll">

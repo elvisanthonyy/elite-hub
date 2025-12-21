@@ -12,7 +12,7 @@ const TestimonialComp = ({ name }: ChildProps) => {
         This class was awesome and I was able to build my first site
       </div>
       <button className="absolute text-xs bottom-5 left-5 w-40 h-10 text-white rounded-lg px-2 bg-black">
-        My Portfolio
+        Project Link
       </button>
     </div>
   );
