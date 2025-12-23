@@ -1,10 +1,12 @@
 "use client";
 import MyCoursesComp from "./MyCoursesComp";
+import { IUserCourse } from "@/models/userCourse";
+import { ICourse } from "@/models/courses";
 
 export interface Course {
-  courseId: string;
+  courseId: ICourse;
+  userCourseId: IUserCourse;
   courseName: string;
-  paid: boolean;
 }
 
 interface ChildProps {
@@ -16,7 +18,10 @@ const MyCoursesMain = ({ myCourses }: ChildProps) => {
   return (
     <div className="flex flex-col items-center py-10 w-full mx-auto mt-27 bg-white h-dvh">
       {myCourses?.map((myCourse, index) => (
-        <div className="w-[87%] mx-auto" key={myCourse?.courseId}>
+        <div
+          className="w-[87%] mx-auto"
+          key={myCourse?.courseId._id.toString()}
+        >
           <MyCoursesComp index={index} myCourse={myCourse} />
         </div>
       ))}

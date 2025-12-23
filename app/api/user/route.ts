@@ -15,7 +15,10 @@ const handler = async () => {
     });
   }
   try {
-    const user = await User.findById(session.user.id).select("-password");
+    const user = await User.findById(session.user.id)
+      .select("-password")
+      .populate("courses.courseId")
+      .populate("courses.userCourseId");
     if (!user) {
       return NextResponse.json({ status: "error", message: "user not found" });
     }

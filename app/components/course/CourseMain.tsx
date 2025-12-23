@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { ICourse } from "@/models/courses";
 import { useRouter } from "next/navigation";
 import api from "@/libs/api";
-import { IUserCourse } from "@/models/user";
+import { IUserArrayCourse } from "@/models/user";
+import { Course } from "./MyCoursesMain";
 
 interface ChildProps {
   course: ICourse;
@@ -11,15 +12,16 @@ interface ChildProps {
     _id: string;
     name: string;
     email: string;
-    courses: IUserCourse[];
+    courses: Course[];
   };
 }
 
 const CourseMain = ({ course, user }: ChildProps) => {
   const router = useRouter();
-  console.log(user);
   const [userError, setUserError] = useState("");
   const [inUser, setInUser] = useState(false);
+  const [paid, setPaid] = useState(false);
+
   const addCourse = () => {
     if (!user) {
       setUserError("You must login to add courses");
@@ -31,6 +33,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
         userId: user?._id,
         courseId: course._id,
         courseName: course.name,
+        courseAmoun: course.amount,
       })
       .then((res) => {
         if (res.data.message === "course added") {
@@ -44,12 +47,23 @@ const CourseMain = ({ course, user }: ChildProps) => {
 
   useEffect(() => {
     const alreadyAddedByUser = user?.courses.find(
-      (it: IUserCourse) => it.courseId === course._id.toString()
+      (it: Course) => it.courseId._id.toString() === course._id.toString()
     );
 
-    if (alreadyAddedByUser) {
+    if (!alreadyAddedByUser) {
+      return;
+    }
+
+    const isPaid = alreadyAddedByUser.userCourseId.paymentStatus === "paid";
+
+    if (alreadyAddedByUser && isPaid) {
+      setInUser(true);
+      setPaid(true);
+    } else {
       setInUser(true);
     }
+
+    //check if user has paid for course
   }, []);
 
   return (
@@ -96,12 +110,18 @@ const CourseMain = ({ course, user }: ChildProps) => {
       )}
 
       {inUser ? (
-        <button
-          onClick={() => router.push(`/${course.name}/payment`)}
-          className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
-        >
-          Make Payment
-        </button>
+        !paid ? (
+          <button
+            onClick={() => router.push(`/${course.name}/payment`)}
+            className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
+          >
+            Make Payment
+          </button>
+        ) : (
+          <button className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center">
+            View course
+          </button>
+        )
       ) : (
         <button
           onClick={addCourse}

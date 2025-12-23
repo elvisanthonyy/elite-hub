@@ -37,6 +37,7 @@ const page = async ({
     },
   });
   const userData = await userRes.json();
+  console.log(userData);
   return (
     <div className="">
       <CourseMain user={userData?.user} course={data.course} />

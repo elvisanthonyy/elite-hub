@@ -34,9 +34,13 @@ const MyCoursesComp = ({ myCourse, index }: ChildProps) => {
       <div className=" h-full flex flex-col">
         <div className="text-xl mb-5 font-bold">{mainCourseName}</div>
 
-        {!myCourse.paid ? (
+        {myCourse.userCourseId.paymentStatus !== "paid" ? (
           <button
-            onClick={() => router.push(`/${myCourse.courseName}/payment`)}
+            onClick={() =>
+              router.push(
+                `/${myCourse.courseName}/payment?redirectUrl=${myCourse.userCourseId._id}`
+              )
+            }
             className="cursor-pointer w-20 h-10 mt-auto bg-white text-black text-sm rounded-lg"
           >
             Pay
@@ -49,10 +53,16 @@ const MyCoursesComp = ({ myCourse, index }: ChildProps) => {
       </div>
       <div
         className={`bg-white mt-auto rounded-4xl w-10 h-10 flex text-xs justify-center items-center ${
-          myCourse.paid ? "text-green-600" : "text-red-600"
+          myCourse.userCourseId.paymentStatus === "paid"
+            ? "text-green-600"
+            : "text-red-600"
         } `}
       >
-        {myCourse.paid ? <FaCheck /> : <FiX className="text-xl" />}
+        {myCourse.userCourseId.paymentStatus === "paid" ? (
+          <FaCheck />
+        ) : (
+          <FiX className="text-xl" />
+        )}
       </div>
     </div>
   );

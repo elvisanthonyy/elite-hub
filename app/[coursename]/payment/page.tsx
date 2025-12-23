@@ -2,6 +2,9 @@ import getSession from "@/libs/getSession";
 import { redirect } from "next/navigation";
 import dbConnect from "@/libs/dbConnect";
 import NavBar from "@/app/components/nav/NavBar";
+import PaymentMain from "@/app/components/payment/PaymentMain";
+
+const baseURL = process.env.BASE_URL;
 
 export async function generateMetadata({
   params,
@@ -26,9 +29,14 @@ const page = async ({
   if (!session) {
     redirect(`/auth/login?redirectUrl=${paramBody.coursename}/payment`);
   }
+
+  const req = await fetch(`${baseURL}/api//one/course/${paramBody.coursename}`);
+  const data = await req.json();
+
   return (
     <div>
       <NavBar />
+      <PaymentMain user={session.user} course={data.course} />
     </div>
   );
 };

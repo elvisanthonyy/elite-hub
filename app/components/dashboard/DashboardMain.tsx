@@ -1,5 +1,5 @@
 "use client";
-import { IUserCourse } from "@/models/user";
+import { Course } from "../course/MyCoursesMain";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -7,15 +7,20 @@ interface ChildProps {
   user: {
     name: string;
     email: string;
-    courses: IUserCourse[];
+    courses: Course[];
   };
 }
 const DashboardMain = ({ user }: ChildProps) => {
   const router = useRouter();
-  const [paidCourses, setPaidCourses] = useState<IUserCourse[] | []>([]);
+  const [paidCourses, setPaidCourses] = useState<Course[] | []>([]);
 
   useEffect(() => {
-    setPaidCourses(user?.courses.filter((it: IUserCourse) => it.paid === true));
+    //get paid courses
+    setPaidCourses(
+      user?.courses.filter(
+        (it: Course) => it.userCourseId.paymentStatus === "paid"
+      )
+    );
   }, []);
   return (
     <div className="w-full flex flex-col min-h-dvh">

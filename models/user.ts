@@ -1,10 +1,10 @@
 import mongoose, { Document, models, Model, Types } from "mongoose";
+import { UserCourse } from "./userCourse";
 
-export interface IUserCourse extends Document {
-  _id: Types.ObjectId;
-  courseId: string;
+export interface IUserArrayCourse {
+  courseId: Types.ObjectId;
   courseName: string;
-  paid: boolean;
+  userCourseId: Types.ObjectId;
 }
 
 export interface IUser extends Document {
@@ -14,23 +14,8 @@ export interface IUser extends Document {
   isVerified: boolean;
   verificationToken: string;
   verificationTokenExpiry?: Date;
-  courses: Types.DocumentArray<IUserCourse>;
+  courses: IUserArrayCourse[];
 }
-
-const userCourseSchema = new mongoose.Schema<IUserCourse>({
-  courseId: {
-    type: String,
-    ref: "Course",
-  },
-  courseName: {
-    type: String,
-  },
-
-  paid: {
-    type: Boolean,
-    default: false,
-  },
-});
 
 const userSchema = new mongoose.Schema<IUser>(
   {
@@ -58,7 +43,21 @@ const userSchema = new mongoose.Schema<IUser>(
     verificationTokenExpiry: {
       type: Date,
     },
-    courses: [userCourseSchema],
+    courses: [
+      {
+        courseId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Course",
+        },
+        userCourseId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "UserCourse",
+        },
+        courseName: {
+          type: String,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

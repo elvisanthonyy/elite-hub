@@ -7,13 +7,11 @@ interface ReqBody {
   userId: string;
   courseId: string;
   courseName: string;
-  courseAmount: Number;
 }
 
 const handler = async (req: Request) => {
   await dbConnect();
-  const { userId, courseId, courseName, courseAmount } =
-    (await req.json()) as ReqBody;
+  const { userId, courseId } = (await req.json()) as ReqBody;
 
   try {
     const user = await User.findById(userId);
@@ -21,34 +19,36 @@ const handler = async (req: Request) => {
       return NextResponse.json({ status: "error", message: "user not found" });
     }
 
-    const chechIfCOurseExist = user.courses?.find(
-      (it: any) => it.courseId.toString() === courseId
+    const payment = user?.courses?.find(
+      (it) => it.courseId.toString() === courseId
     );
 
-    if (chechIfCOurseExist) {
+    if (!payment) {
       return NextResponse.json({
         status: "error",
-        message: "course already added",
-        chechIfCOurseExist,
+        message: "could not find payment",
       });
     }
 
-    const userCourse = new UserCourse({
+    const userCourse = await UserCourse.findOne({
       userId: userId,
       courseId: courseId,
-      amount: courseAmount,
     });
 
+    if (!userCourse) {
+      return NextResponse.json({
+        status: "error",
+        message: "could not find user course",
+      });
+    }
+
+    userCourse.paymentStatus = "paid";
+
     await userCourse.save();
-    user.courses?.push({
-      courseId: courseId,
-      courseName: courseName,
-      userCourseId: userCourse._id,
-    });
-    await user.save();
+
     return NextResponse.json({
       status: "okay",
-      message: "course added",
+      message: "payment made",
     });
   } catch (error) {
     console.error("Error", error);

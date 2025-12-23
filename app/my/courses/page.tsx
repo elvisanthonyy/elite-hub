@@ -30,10 +30,12 @@ const page = async () => {
     },
   });
   const data = await res.json();
+
+  console.log(data);
   return (
     <div>
       <NavBar name="myCourses" />
-      <MyCoursesMain myCourses={data.user.courses} />
+      <MyCoursesMain myCourses={data.user?.courses} />
     </div>
   );
 };
