@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import dbConnect from "@/libs/dbConnect";
 import NavBar from "@/app/components/nav/NavBar";
 import PaymentMain from "@/app/components/payment/PaymentMain";
+import { cookies } from "next/headers";
 
 const baseURL = process.env.BASE_URL;
 
@@ -24,6 +25,7 @@ const page = async ({
 }) => {
   await dbConnect();
   const paramBody = await params;
+  const cookieStore = cookies();
   const session = await getSession();
 
   if (!session) {
@@ -33,10 +35,19 @@ const page = async ({
   const req = await fetch(`${baseURL}/api//one/course/${paramBody.coursename}`);
   const data = await req.json();
 
+  //to get user from data base
+  const userRes = await fetch(`${baseURL}/api/user`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: (await cookieStore).toString(),
+    },
+  });
+  const userData = await userRes.json();
   return (
     <div>
       <NavBar />
-      <PaymentMain user={session.user} course={data.course} />
+      <PaymentMain user={userData.user} course={data.course} />
     </div>
   );
 };

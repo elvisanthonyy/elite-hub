@@ -35,7 +35,7 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
         name === "allCourses" ? "w-full" : "w-70"
       }  h-60 mr-2 rounded-2xl aspect-6/5 bg-linear-to-br ${mainColor} `}
     >
-      <div className="font-semibold text-xl text-white">{mainCourseName}</div>
+      <div className="font-semibold text-xl text-black">{mainCourseName}</div>
       <div className="mt-5 text-xs text-gray-950">{course?.description}</div>
       <div className="flex pb-8 pr-2 text-xl items-center justify-center w-40 h-40 bg-white rounded-full -bottom-12 absolute -right-7">
         {`₦${course?.amount}`}

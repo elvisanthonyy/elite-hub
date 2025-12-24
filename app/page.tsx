@@ -81,20 +81,13 @@ export default function Home() {
           className="flex cursor-pointer w-auto h-auto absolute bottom-15"
           href={"/auth/login"}
         >
-          <button className="cursor-pointer text-[16px] rounded-4xl bg-white text-black px-20 py-6">
+          <button className="cursor-pointer text-[16px] rounded-xl bg-white text-black px-15 py-4">
             Get Started
           </button>
         </Link>
       </div>
-      <div className="flex justify-center bg-white pt-10 w-[95%] px-5 p-1 mt-5 rounded-lg h-50 mx-auto">
-        {" "}
-        <div className="flex text-lg text-gray-900">
-          Become a web developer in short and simple to understand way without
-          the need for a laptop for the price from N0 to N10000
-        </div>
-      </div>
-      <div className="w-[95%] rounded-xl mx-auto overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-white mt-5">
-        <div className="shrink- font-semibold flex w-auto slide-animation mr-5">
+      <div className="w-full  mx-auto overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-blue-600/10 border-white border-b-2">
+        <div className="shrink-0 text-black font-semibold flex w-auto slide-animation mr-5">
           <div className=" flex shrink-0 mx-5">
             Start Your web Development Journey today
           </div>
@@ -135,9 +128,27 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="flex flex-col bg-white py-8 w-[95%] px-5 p-1 mt-5 rounded-lg h-50 mx-auto">
+        {" "}
+        <div className="text-lg text-blue-950 underline font-bold mb-3">
+          Elite Hub Global
+        </div>
+        <div className="flex text-md text-gray-900">
+          Become a web developer in short and simple to understand way without
+          the need for a laptop for the price from N0 to N10000
+        </div>
+      </div>
 
-      <div className="w-[95%] my-6 rounded-2xl mx-auto h-12 flex justify-center items-center bg-black font-semibold text-gray-50  text-center">
-        Courses
+      <div className="w-[95%] my-6 rounded-2xl mx-auto h-12 flex justify-srart items-center bg-white  text-black  text-center">
+        <div className="w-30 font-semibold flex justify-center items-center rounded-2xl bg-black/15 h-full">
+          Course
+        </div>
+        <div className="w-30 flex justify-center items-center rounded-2xl  h-full">
+          Testimonials
+        </div>
+        <div className="w-30 flex justify-center items-center rounded-2xl  h-full">
+          About
+        </div>
       </div>
       <div className="flex items-center min-h-65 hidden-scroll mb-3 pb-5 w-[95%] mx-auto overflow-x-scroll">
         {loading ? (
@@ -155,7 +166,7 @@ export default function Home() {
         onMouseEnter={() => setInView(false)}
         onMouseLeave={() => setInView(true)}
         ref={slideRef}
-        className="flex  hidden-scroll overflow-hidden w-full py-5 mb-10 min-h-65 h-auto bg-white/50"
+        className="flex  hidden-scroll border-t border-b border-b-gray-400 border-t-gray-400 py-5 overflow-hidden w-full  mb-10 min-h-55  "
       >
         <div
           className="w-full"

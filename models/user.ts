@@ -2,9 +2,9 @@ import mongoose, { Document, models, Model, Types } from "mongoose";
 import { UserCourse } from "./userCourse";
 
 export interface IUserArrayCourse {
-  courseId: Types.ObjectId;
+  courseId: Types.ObjectId | string;
   courseName: string;
-  userCourseId: Types.ObjectId;
+  userCourseId: Types.ObjectId | string;
 }
 
 export interface IUser extends Document {

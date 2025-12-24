@@ -8,7 +8,7 @@ interface ChildProps {
 
 const AllCoursesMain = ({ courses }: ChildProps) => {
   return (
-    <div className="flex flex-col items-center py-10 w-full mx-auto mt-27 bg-white h-dvh">
+    <div className="flex flex-col items-center py-10 w-full mx-auto mt-22 bg-white h-dvh">
       <div className="flex flex-col items-center w-full">
         {courses?.map((course, index) => (
           <div className="flex w-[90%] mb-5" key={course._id.toString()}>

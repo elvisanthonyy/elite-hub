@@ -16,7 +16,7 @@ interface ChildProps {
 const MyCoursesMain = ({ myCourses }: ChildProps) => {
   console.log(myCourses);
   return (
-    <div className="flex flex-col items-center py-10 w-full mx-auto mt-27 bg-white h-dvh">
+    <div className="flex flex-col items-center py-10 w-full mx-auto mt-22 bg-white h-dvh">
       {myCourses?.map((myCourse, index) => (
         <div
           className="w-[87%] mx-auto"

@@ -18,7 +18,7 @@ const handler = async (req: Request) => {
     if (existingUSer) {
       return NextResponse.json({
         status: "error",
-        message: "user already existing",
+        message: "user already exists",
       });
     }
     const verificationToken = crypto.randomBytes(32).toString("hex");

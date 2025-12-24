@@ -15,7 +15,7 @@ const NavBar = ({ name }: ChildProps) => {
   return (
     <nav className="flex z-20 bg-red-400 h-auto w-full absolute top-0 ">
       <Menu isMenuOpen={isMenuOpen} />
-      <div className="absolute z-30 flex left-[50%] -translate-x-[50%] top-7 items-center justify-between rounded-4xl left px-8 w-[90%] h-16 bg-white">
+      <div className="absolute z-30 flex  items-center justify-between left px-8 w-full h-17 bg-white">
         {name === "home" && (
           <div className="flex items-center">
             <div className="flex mb-1 mr-2 justify-start items-center">

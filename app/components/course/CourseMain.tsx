@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ICourse } from "@/models/courses";
 import { useRouter } from "next/navigation";
 import api from "@/libs/api";
-import { IUserArrayCourse } from "@/models/user";
+import ButtonLoading from "../Loading/ButtonLoading";
 import { Course } from "./MyCoursesMain";
 
 interface ChildProps {
@@ -21,9 +21,12 @@ const CourseMain = ({ course, user }: ChildProps) => {
   const [userError, setUserError] = useState("");
   const [inUser, setInUser] = useState(false);
   const [paid, setPaid] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const addCourse = () => {
+    setLoading(true);
     if (!user) {
+      setLoading(false);
       setUserError("You must login to add courses");
       return;
     }
@@ -36,11 +39,13 @@ const CourseMain = ({ course, user }: ChildProps) => {
         courseAmoun: course.amount,
       })
       .then((res) => {
+        setLoading(false);
         if (res.data.message === "course added") {
           return setInUser(true);
         }
       })
       .catch((err) => {
+        setLoading(false);
         console.error("Error", err);
       });
   };
@@ -54,7 +59,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
       return;
     }
 
-    const isPaid = alreadyAddedByUser.userCourseId.paymentStatus === "paid";
+    const isPaid = alreadyAddedByUser.userCourseId?.paymentStatus === "paid";
 
     if (alreadyAddedByUser && isPaid) {
       setInUser(true);
@@ -67,7 +72,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
   }, []);
 
   return (
-    <div className="z-40 flex flex-col items-center mt-28 min-h-[90dvh] rounded-lg w-full bg-white mx-auto">
+    <div className="z-40 flex flex-col items-center mt-22 min-h-[90dvh] rounded-lg w-full bg-white mx-auto">
       <div className="mt-10 text-lg  font-bold text-gray-800">
         {course.name.toUpperCase()}
       </div>
@@ -100,9 +105,10 @@ const CourseMain = ({ course, user }: ChildProps) => {
       )}
       {userError && (
         <button
-          onClick={() =>
-            router.push(`/auth/login?redirectUrl=course/${course.name}`)
-          }
+          onClick={() => {
+            setLoading(true);
+            router.push(`/auth/login?redirectUrl=course/${course.name}`);
+          }}
           className="cursor-pointer bg-black rounded-lg w-[90%] h-12 text-white text-sm mb-5"
         >
           Login
@@ -127,7 +133,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
           onClick={addCourse}
           className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
         >
-          Add
+          {loading ? <ButtonLoading /> : "Add"}
         </button>
       )}
     </div>
