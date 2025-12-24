@@ -37,9 +37,7 @@ const PaymentMain = ({ user, course }: ChildProps) => {
               orderId: orderId,
             },
             callback: function (response: any) {
-              router.replace(
-                `https://precognizant-priscila-subterraneously.ngrok-free.dev/payment/success?ref=${response.reference}`
-              );
+              router.replace(`/payment/success?ref=${response.reference}`);
             },
           });
           handler.openIframe();
