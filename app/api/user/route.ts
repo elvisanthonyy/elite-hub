@@ -3,6 +3,8 @@ import dbConnect from "@/libs/dbConnect";
 import { User } from "@/models/user";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
+import "@/models/userCourse";
+import "@/models/courses";
 
 const handler = async () => {
   await dbConnect();
