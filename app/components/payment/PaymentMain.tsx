@@ -2,7 +2,6 @@
 import { ICourse } from "@/models/courses";
 import api from "@/libs/api";
 import { useRouter } from "next/navigation";
-import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Course } from "../course/MyCoursesMain";
 
