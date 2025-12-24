@@ -4,6 +4,7 @@ import api from "@/libs/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Course } from "../course/MyCoursesMain";
+import Script from "next/script";
 
 interface ChildProps {
   user: {
@@ -27,7 +28,7 @@ const PaymentMain = ({ user, course }: ChildProps) => {
         amount: course.amount,
       })
       .then((res) => {
-        if (res.status) {
+        if (res.data.data.authorization_url) {
           const handler = (window as any).PaystackPop.setup({
             key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
             email: user.email,
@@ -41,6 +42,8 @@ const PaymentMain = ({ user, course }: ChildProps) => {
             },
           });
           handler.openIframe();
+        } else {
+          alert("could not open payment");
         }
       })
       .catch((err) => {
@@ -57,21 +60,27 @@ const PaymentMain = ({ user, course }: ChildProps) => {
     setOrderId(userCourse?.userCourseId._id.toString());
   }, []);
   return (
-    <div className="flex w-full py-10 h-[90dvh] bg-white mt-22">
-      <div className="flex-col w-[90%] flex mx-auto">
-        <div>{user.name}</div>
-        <div>{user.email}</div>
-        <div>{course.name}</div>
-        <div>{course.description}</div>
-        <div>{course.amount}</div>
-        <button
-          onClick={makePayment}
-          className="w-full cursor-pointer rounded-3xl mb-20 mt-auto h-14 bg-black text-white mx-auto"
-        >
-          Pay
-        </button>
+    <>
+      <Script
+        src="https://js.paystack.co/v1/inline.js"
+        strategy="afterInteractive"
+      />
+      <div className="flex w-full py-10 h-[90dvh] bg-white mt-22">
+        <div className="flex-col w-[90%] flex mx-auto">
+          <div>{user.name}</div>
+          <div>{user.email}</div>
+          <div>{course.name}</div>
+          <div>{course.description}</div>
+          <div>{course.amount}</div>
+          <button
+            onClick={makePayment}
+            className="w-full cursor-pointer rounded-3xl mb-20 mt-auto h-14 bg-black text-white mx-auto"
+          >
+            Pay
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
