@@ -32,6 +32,7 @@ const PaymentMain = ({ user, course }: ChildProps) => {
       .then((res) => {
         setLoading(false);
         if (res.data.data.authorization_url) {
+          console.log(res.data);
           const handler = (window as any).PaystackPop.setup({
             key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
             email: user.email,
