@@ -1,6 +1,6 @@
 "use client";
 import { ICourse } from "@/models/courses";
-import api from "@/libs/api";
+import Script from "next/script";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Course } from "../course/MyCoursesMain";
@@ -23,37 +23,30 @@ const PaymentMain = ({ user, course }: ChildProps) => {
   const [loading, setLoading] = useState(false);
   console.log(orderId);
   const makePayment = () => {
+    if (!(window as any).PaystackPop) {
+      alert("Paystack not ready");
+      return;
+    }
+
     setLoading(true);
-    api
-      .post("/api/paystack/initialize", {
-        email: user.email,
-        amount: course.amount,
-      })
-      .then((res) => {
+
+    const handler = (window as any).PaystackPop.setup({
+      key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
+      email: user.email,
+      amount: course.amount * 100,
+      ref: String(Date.now()),
+      metadata: {
+        orderId: orderId,
+      },
+      callback: function (response: any) {
         setLoading(false);
-        if (res.data.data.authorization_url) {
-          console.log(res.data);
-          const handler = (window as any).PaystackPop.setup({
-            key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
-            email: user.email,
-            amount: course.amount * 100,
-            ref: res.data.data.ref,
-            metadata: {
-              orderId: orderId,
-            },
-            callback: function (response: any) {
-              router.replace(`/payment/success?ref=${response.reference}`);
-            },
-          });
-          handler.openIframe();
-        } else {
-          alert("could not open payment");
-        }
-      })
-      .catch((err) => {
+        router.replace(`/payment/success?ref=${response.reference}`);
+      },
+      onClose: () => {
         setLoading(false);
-        console.error("Error", err);
-      });
+      },
+    });
+    handler.openIframe();
   };
 
   useEffect(() => {
@@ -66,6 +59,10 @@ const PaymentMain = ({ user, course }: ChildProps) => {
   }, []);
   return (
     <>
+      <Script
+        src="https://js.paystack.co/v1/inline.js"
+        strategy="afterInteractive"
+      />
       <div className="flex w-full py-10 h-[90dvh] bg-white mt-22">
         <div className="flex-col w-[90%] flex mx-auto">
           <div>{user.name}</div>
@@ -73,8 +70,10 @@ const PaymentMain = ({ user, course }: ChildProps) => {
           <div>{course.name}</div>
           <div>{course.description}</div>
           <div>{course.amount}</div>
+
           <button
             onClick={makePayment}
+            type="button"
             className="w-full cursor-pointer rounded-3xl mb-20 mt-auto h-14 bg-black text-white mx-auto"
           >
             {loading ? <ButtonLoading /> : "Pay"}

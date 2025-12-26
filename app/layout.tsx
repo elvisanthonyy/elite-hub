@@ -28,7 +28,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <script src="https://js.paystack.co/v1/inline.js"></script>
       </body>
     </html>
   );
