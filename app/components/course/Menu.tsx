@@ -6,26 +6,30 @@ interface ChildProps {
 const Menu = ({ isMenuOpen }: ChildProps) => {
   return (
     <div
-      className={`trasition-all shadow-2xl ease-in-out duration-600 absolute grid py-5 place-items-center  ${
+      className={`trasition-all px-8 py-16 ease-in-out duration-600 absolute justift-between flex flex-col py-5  ${
         isMenuOpen
-          ? "opacity-100 translate-y-20"
-          : "-translate-y-1000 opacity-100"
-      } z-15 flex top-0 text-xl font-semibold text-gray-900 -translate-x-[50%] rounded-xl h-110 w-[96%] left-[50%] bg-white`}
+          ? "opacity-100 translate-x-0"
+          : "-translate-x-1000 opacity-100"
+      } z-15 flex top-16 text-xl font-semibold text-gray-900 h-dvh w-[80%] left-0 bg-white`}
     >
-      <Link href={"/"}>
-        <div>Home</div>
-      </Link>
-      <Link href={"/dashboard"}>
-        <div>Dashboard</div>
-      </Link>
-      <Link href={"/profile"}>
-        <div>Profile</div>
-      </Link>
-      <Link href={"/my/courses"}>
-        <div>My Courses</div>
-      </Link>
-
-      <div>About</div>
+      <div className="grid text-black-5 text-[18px] gap-y h-[80%]">
+        <Link href={"/"}>
+          <div>Home</div>
+        </Link>
+        <Link href={"/dashboard"}>
+          <div>Dashboard</div>
+        </Link>
+        <Link href={"/profile"}>
+          <div>Profile</div>
+        </Link>
+        <Link href={"/my/courses"}>
+          <div>My Courses</div>
+        </Link>
+        <div>About</div>
+      </div>
+      <button className="bg-primary-3 text-white-2 text-[16px] font-bold rounded-[40px] px-16 py-4">
+        Login
+      </button>
     </div>
   );
 };

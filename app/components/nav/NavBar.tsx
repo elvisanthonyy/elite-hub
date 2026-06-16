@@ -13,20 +13,21 @@ const NavBar = ({ name }: ChildProps) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="flex z-20 bg-red-400 h-auto w-full absolute top-0 ">
+    <nav className="flex z-20 h-[64px] w-full absolute top-0 ">
       <Menu isMenuOpen={isMenuOpen} />
-      <div className="absolute z-30 flex  items-center justify-between left px-8 w-full h-17 bg-white">
+      <div className="absolute z-30 border-b-[0.5px] border-b-black-5 px-4 flex  items-center justify-between left w-full h-17 bg-white">
         {name === "home" && (
           <div className="flex items-center">
             <div className="flex mb-1 mr-2 justify-start items-center">
               <Image
-                src={"/elite_logo.svg"}
+                src={"/icons/elite-logo.svg"}
                 alt="logo"
                 height={40}
                 width={40}
+                className="w-[32px]"
               />
             </div>
-            <div className="text-lg font-semibold">Elite Hub</div>
+            <div className="text-lg text-black-2 font-bold">Elite Hub</div>
           </div>
         )}
         {name !== "home" && <BackButton />}
@@ -37,19 +38,19 @@ const NavBar = ({ name }: ChildProps) => {
           className="flex z-30  cursor-pointer flex-col justify-center items-center w-10 h-auto "
         >
           <span
-            className={`transition-all ease-in w-5 m-1 ${
+            className={`transition-all ease-in w-6 m-1 ${
               isMenuOpen ? "-rotate-45 translate-y-1" : ""
-            } rounded-2xl h-0.5 bg-black block`}
+            } rounded-2xl h-0.75 bg-black block`}
           ></span>
           <span
-            className={`transition-all ease-in w-5 mb-1 ${
+            className={`transition-all ease-in w-6 mb-1 ${
               isMenuOpen ? "opacity-0" : ""
-            } rounded-2xl h-0.5 bg-black block`}
+            } rounded-2xl h-0.75 bg-black block`}
           ></span>
           <span
-            className={`transition-all ease-in w-5 mb-1 ${
+            className={`transition-all rounded-xl ease-in w-6 mb-1 ${
               isMenuOpen ? "rotate-45 -translate-y-2" : ""
-            } rounded-2xl h-0.5 bg-black block`}
+            } rounded-2xl h-0.75 bg-black block`}
           ></span>
         </div>
       </div>

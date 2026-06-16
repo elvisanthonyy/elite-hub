@@ -31,14 +31,21 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
   return (
     <div
       onClick={() => router.push(`/course/${course?.name.toLocaleLowerCase()}`)}
-      className={`cursor-pointer relative p-5 flex flex-col overflow-hidden shrink-0 ${
-        name === "allCourses" ? "w-full" : "w-70"
-      }  h-60 mr-2 rounded-2xl aspect-6/5 bg-linear-to-br ${mainColor} `}
+      className={`cursor-pointer w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
     >
-      <div className="font-semibold text-xl text-black">{mainCourseName}</div>
-      <div className="mt-5 text-xs text-gray-950">{course?.description}</div>
-      <div className="flex pb-8 pr-2 text-xl items-center justify-center w-40 h-40 bg-white rounded-full -bottom-12 absolute -right-7">
-        {`₦${course?.amount}`}
+      <div className="h-[144px] w-[384px] mb-2 bg-secondary-3"></div>
+      <div className="px-[18px] pb-4">
+        <div className="font-semibold text-[16px] text-black">
+          {mainCourseName}
+        </div>
+        <div className="mt-2 text-xs border-t border-white-3 py-2 text-black-5 text-gray-950">
+          {course?.description}
+        </div>
+        <div className="w-full mt-2 flex justify-end">
+          <div className="flex w-fit text-[14px] rounded-[4px] bg-primary-2 text-white-1 px-8 py-[12px]">
+            Eroll
+          </div>
+        </div>
       </div>
     </div>
   );

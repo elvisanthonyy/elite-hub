@@ -10,6 +10,28 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary-1: #2200bb;
+  --color-primary-2: #2800de;
+  --color-primary-3: #542fff;
+  --color-primary-4: #7758ff;
+  --color-primary-5: #a996ff;
+  --color-secondary-1: #99bb00;
+  --color-secondary-2: #b5dd02;
+  --color-secondary-3: #d1ff00;
+  --color-secondary-4: #e1ff58;
+  --color-secondary-5: #eeffa3;
+  --color-black-1: #000000;
+  --color-black-2: #0f0f0f;
+  --color-black-3: #383737;
+  --color-black-4: #4e4e4e;
+  --color-black-5: #7e7c7c;
+  --color-white-1: #ffffff;
+  --color-white-2: #eeeeee;
+  --color-white-3: #c2c2c2;
+  --color-white-4: #b7b7b7;
+  --color-white-5: #989898;
+  --color-background: #fafafa;
+  --color-hero-gradient: #e3fffe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +43,6 @@
 
 body {
   box-sizing: border-box;
-  background: rgb(240, 240, 240);
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }

@@ -65,81 +65,69 @@ export default function Home() {
   return (
     <div className="relative">
       <NavBar name="home" />
-      <div className="flex relative text-white text-5xl justify-center items-center w-full h-140 bg-black">
-        <div className="absolute w-full h-full bg-black/80"></div>
-        <div className="absolute hub-text text-center left-[50%] top-[50%] -translate-[50%]">
-          ELITE HUB
+      <div className="flex flex-col relative pt-32 pb-12 px-4 text-white justify-center items-start w-full h-auto min-h-dvh bg-linear-0 from-white-1 to-hero-gradient/30">
+        <div className="w-full h-auto ">
+          <div className="flex flex-col mb-8">
+            <div className="text-[32px] mb-2 text-black-2 font-bold">
+              Get your <br />{" "}
+              <span className="text-black-4">web Development</span> <br />{" "}
+              career Started
+            </div>
+            <div className="text-black-2 text-[14px] font-medium p-4 border-l-3 border-primary-2">
+              Get started today by registering and begin your journey doesn’t
+              matter your level
+            </div>
+          </div>
+          <Link className="flex cursor-pointer" href={"/auth/signup"}>
+            <div className="w-full text-[18px] font-semibold py-6 flex items-center cursor-pointer text-black-2 justify-center border border-black-2 rounded-[64px]">
+              Get started
+            </div>
+          </Link>
         </div>
-        <Image
-          src={"/laptop.jpg"}
-          alt="laptop image"
-          height={500}
-          width={250}
-          className="w-full h-full object-fill"
-        />
-        <Link
-          className="flex cursor-pointer w-auto h-auto absolute bottom-15"
-          href={"/auth/login"}
-        >
-          <button className="cursor-pointer text-[16px] rounded-xl bg-white text-black px-15 py-4">
-            Get Started
-          </button>
-        </Link>
-      </div>
-      <div className="w-full  mx-auto overflow-hidden text-sm flex justify-start items-center text-black h-12 bg-blue-600/10 border-white border-b-2">
-        <div className="shrink-0 text-black font-semibold flex w-auto slide-animation mr-5">
-          <div className=" flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey todayy
-          </div>
 
-          <div className=" flex shrink-0 mx-5">
-            Start Your web Development Journey today
+        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-10">
+          <div className="w-full flex justify-center ">
+            <Image
+              src={"/designs/ellipse.svg"}
+              alt="laptop image"
+              height={1000}
+              width={1000}
+              className="w-[90%] h-auto object-fill"
+            />
           </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
+          <div className="absolute items-center justify-center w-full h-full  top-[50%] left-[50%] -translate-[50%] flex ">
+            <Image
+              src={"/designs/person-image.png"}
+              alt="laptop image"
+              height={1000}
+              width={1000}
+              className="w-[120%] h-[120%] object-cover"
+            />
           </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
+        </div>
+        <div className="mt-8 grid gap-y-4">
+          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
+            <div className="w-[56px] h-auto aspect-square border border-black-2 rounded-full"></div>
+            <div className="text-black-3 text-[16px] font-semibold flex">
+              Basic
+            </div>
           </div>
-
-          <div className=" flex shrink-0 mx-5">
-            Start Your web Development Journey today
+          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start ">
+            <div className="w-[56px] flex h-auto aspect-square border border-black-2 rounded-full"></div>
+            <div className="text-black-3 text-[16px] font-semibold bg">
+              Intermediate
+            </div>
           </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className=" flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
-          </div>
-          <div className="flex shrink-0 mx-5">
-            Start Your web Development Journey today
+          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
+            <div className="w-[56px] h-auto aspect-square border border-black-2 rounded-full"></div>
+            <div className="text-black-3 text-[16px] font-semibold">
+              Advanced
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col bg-white py-8 w-[95%] px-5 p-1 mt-5 rounded-lg h-50 mx-auto">
-        {" "}
-        <div className="text-lg text-blue-950 underline font-bold mb-3">
-          Elite Hub Global
-        </div>
-        <div className="flex text-md text-gray-900">
-          Become a web developer in short and simple to understand way without
-          the need for a laptop for the price from N0 to N10000
-        </div>
-      </div>
 
-      <div className="w-[95%] my-6 rounded-2xl mx-auto h-12 flex justify-srart items-center bg-white  text-black  text-center">
+      <div className="w-[95%] hidden my-6 rounded-2xl mx-auto h-12 flex justify-srart items-center bg-white  text-black  text-center">
         <div className="w-30 font-semibold flex justify-center items-center rounded-2xl bg-black/15 h-full">
           Course
         </div>
@@ -166,7 +154,7 @@ export default function Home() {
         onMouseEnter={() => setInView(false)}
         onMouseLeave={() => setInView(true)}
         ref={slideRef}
-        className="flex  hidden-scroll border-t border-b border-b-gray-400 border-t-gray-400 py-5 overflow-hidden w-full  mb-10 min-h-55  "
+        className="flex hidden-scroll overflow-hidden w-full  mb-10 min-h-55  "
       >
         <div
           className="w-full"
