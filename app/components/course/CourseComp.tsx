@@ -33,7 +33,7 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
       onClick={() => router.push(`/course/${course?.name.toLocaleLowerCase()}`)}
       className={`cursor-pointer w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
     >
-      <div className="h-[144px] w-[384px] mb-2 bg-secondary-3"></div>
+      <div className="h-[144px] w-[384px] mb-2 bg-black-3"></div>
       <div className="px-[18px] pb-4">
         <div className="font-semibold text-[16px] text-black">
           {mainCourseName}
@@ -42,7 +42,7 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
           {course?.description}
         </div>
         <div className="w-full mt-2 flex justify-end">
-          <div className="flex w-fit text-[14px] rounded-[4px] bg-primary-2 text-white-1 px-8 py-[12px]">
+          <div className="flex w-fit text-[14px] rounded-[4px] bg-primary-3 text-white-1 px-8 py-[12px]">
             Eroll
           </div>
         </div>

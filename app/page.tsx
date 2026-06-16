@@ -154,7 +154,7 @@ export default function Home() {
         onMouseEnter={() => setInView(false)}
         onMouseLeave={() => setInView(true)}
         ref={slideRef}
-        className="flex hidden-scroll overflow-hidden w-full  mb-10 min-h-55  "
+        className="flex hidden-scroll overflow-hidden w-full mb-10 min-h-55  "
       >
         <div
           className="w-full"
