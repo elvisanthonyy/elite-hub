@@ -46,7 +46,7 @@ const SignUpMain = () => {
           className="w-full"
         />
       </div>
-      <div className="flex items-center justify-end w-full px-4 mt-8">
+      <div className="flex items-center justify-start w-full px-4 mt-8">
         <div className="flex mb-1 mr-2 justify-start items-center">
           <Image
             src={"/icons/elite-logo.svg"}
