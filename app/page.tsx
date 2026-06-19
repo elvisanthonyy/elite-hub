@@ -9,6 +9,8 @@ import TestimonialComp from "./components/testimonial/TestimonialComp";
 import api from "@/libs/api";
 import { ICourse } from "@/models/courses";
 import MainLoading from "./components/Loading/MainLoading";
+import { useUser } from "./context/UserContext";
+import { Metadata } from "next";
 
 export default function Home() {
   const slideRef = useRef<HTMLDivElement | null>(null);
@@ -18,6 +20,7 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const slides = [1, 2, 3, 4];
   const [inView, setInView] = useState(false);
+  const { session } = useUser();
 
   const checkInView = () => {
     if (!slideRef.current) return;
@@ -78,11 +81,13 @@ export default function Home() {
               matter your level
             </div>
           </div>
-          <Link className="flex cursor-pointer" href={"/auth/signup"}>
-            <div className="w-full text-[18px] font-semibold py-4 flex items-center cursor-pointer text-black-2 justify-center border border-black-2 rounded-[64px]">
-              Get started
-            </div>
-          </Link>
+          {!session && (
+            <Link className="flex cursor-pointer" href={"/auth/signup"}>
+              <div className="w-full text-[18px] font-semibold py-4 flex items-center cursor-pointer text-black-2 justify-center border border-black-2 rounded-[64px]">
+                Get started
+              </div>
+            </Link>
+          )}
         </div>
 
         <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-18">

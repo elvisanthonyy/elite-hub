@@ -24,10 +24,11 @@ const CourseMain = ({ course, user }: ChildProps) => {
   const [loading, setLoading] = useState(false);
 
   const addCourse = () => {
+    alert("Hi");
     setLoading(true);
     if (!user) {
       setLoading(false);
-      setUserError("You must login to add courses");
+      router.push("/auth/login?redirectUrl=course/" + course.name);
       return;
     }
 

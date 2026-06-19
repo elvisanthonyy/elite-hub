@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { UserProvider } from "./context/UserContext";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,16 +27,19 @@ export const metadata: Metadata = {
   description: "Introducing youths to tech",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background antialiased`}>
-        {children}
-      </body>
+      <UserProvider session={session}>
+        <body className={`${inter.className} bg-background antialiased`}>
+          {children}
+        </body>
+      </UserProvider>
     </html>
   );
 }
