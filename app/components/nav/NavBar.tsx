@@ -14,7 +14,7 @@ const NavBar = ({ name }: ChildProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <nav className="flex z-20 h-[64px] w-full absolute top-0 ">
-      <Menu isMenuOpen={isMenuOpen} />
+      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <div className="absolute z-30 border-b-[0.5px] border-b-black-5 px-4 flex  items-center justify-between left w-full h-17 bg-white">
         {name === "home" && (
           <div className="flex items-center">

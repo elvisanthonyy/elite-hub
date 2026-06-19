@@ -107,19 +107,49 @@ export default function Home() {
         </div>
         <div className="mt-8 grid gap-y-4">
           <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
-            <div className="w-[56px] h-auto aspect-square border border-black-2 rounded-full"></div>
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
+              <div className="w-[28px] aspect-square">
+                <Image
+                  src={"/icons/basic-logo.svg"}
+                  alt="laptop image"
+                  height={1000}
+                  width={1000}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
             <div className="text-black-3 text-[16px] font-semibold flex">
               Basic
             </div>
           </div>
           <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start ">
-            <div className="w-[56px] flex h-auto aspect-square border border-black-2 rounded-full"></div>
-            <div className="text-black-3 text-[16px] font-semibold bg">
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
+              <div className="w-[28px] aspect-square">
+                <Image
+                  src={"/icons/inter-logo.svg"}
+                  alt="laptop image"
+                  height={1000}
+                  width={1000}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="text-black-3 text-[16px] font-semibold">
               Intermediate
             </div>
           </div>
           <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
-            <div className="w-[56px] h-auto aspect-square border border-black-2 rounded-full"></div>
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
+              <div className="w-[28px] aspect-square">
+                <Image
+                  src={"/icons/advanced-logo.svg"}
+                  alt="laptop image"
+                  height={1000}
+                  width={1000}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
             <div className="text-black-3 text-[16px] font-semibold">
               Advanced
             </div>
