@@ -13,7 +13,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: ChildProps) => {
         isMenuOpen
           ? "opacity-100 translate-x-0"
           : "-translate-x-1000 opacity-100"
-      } z-15 flex text-xl font-semibold bg-black/50 text-gray-900 h-dvh w-full left-0 `}
+      } z-27 flex text-xl font-semibold bg-black/50 text-gray-900 h-dvh w-full left-0 `}
     >
       <div
         onClick={(e) => e.stopPropagation()}

@@ -42,30 +42,43 @@ const LoginMain = () => {
     }
   };
   return (
-    <div className="relative w-full flex-col h-dvh items-center bg-white flex justify-center py-20">
-      <div className="absolute top-0 left-0 flex w-full justify-between border-b h-15  items-center p-5 bg-white">
-        <div className="text-xl mt-2 font-bold ">Elite Hub</div>
+    <div className="relative top-0 w-full flex-col h-dvh items-center bg-white flex justify-center ">
+      <div className="-mt-40">
         <Image
-          src={"/elite_logo.svg"}
-          width={50}
-          height={50}
+          src={"/designs/auth-page-design.svg"}
+          width={1000}
+          height={1000}
           alt="elite logo"
+          className="w-full"
         />
       </div>
+      <div className="flex items-center justify-start w-full px-4 mt-8">
+        <div className="flex mb-1 mr-2 justify-start items-center">
+          <Image
+            src={"/icons/elite-logo.svg"}
+            alt="logo"
+            height={40}
+            width={40}
+            className="w-[32px]"
+          />
+        </div>
+        <div className="font-bold text-[20px]">Login</div>
+      </div>
+
       <form
-        className="flex flex-col items-center w-full mt-10 bg-white min-h-60 rounded-lg p-5"
+        className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         {message && <div className="my-3 text-red-500">{message}</div>}
         <input
-          className="flex px-5 shrink-0 text-sm w-full focus:outline-none h-13 my-2 rounded-xl bg-gray-200"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex px-5 shrink-0 text-sm w-full focus:outline-none h-13 my-2 rounded-xl bg-gray-200"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
           {...register("password", {
             required: "password is required",
           })}
@@ -74,17 +87,20 @@ const LoginMain = () => {
         />
 
         <button
-          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none h-13 my-2 rounded-xl bg-black text-white"
+          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-6 my-2 rounded-[32px] bg-black-3 text-white"
           type="submit"
         >
           {loading ? <ButtonLoading /> : "Login"}
         </button>
       </form>
-      <Link className="w-[90%]" href="/auth/signup">
-        <div className="my-3 cursor-pointer text-sm w-full border h-13 flex justify-center items-center rounded-xl">
-          Sign Up
-        </div>
-      </Link>
+      <div className="flex items-center">
+        Don't have an account?
+        <Link className="ml-2" href="/auth/signup">
+          <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">
+            Sign Up
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
