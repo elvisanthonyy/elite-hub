@@ -41,7 +41,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: ChildProps) => {
           </div>
         </div>
         <div className="w-full border-t border-black-5 h-full flex flex-col justify-between">
-          <div className="grid text-black-5 text-[18px] gap-y h-[60%]">
+          <div className="grid text-black-5 text-[16px] gap-y h-[60%]">
             <div className="flex items-center justify-start">
               <div className="w-[17px] aspect-square mr-4">
                 <Image
