@@ -79,13 +79,13 @@ export default function Home() {
             </div>
           </div>
           <Link className="flex cursor-pointer" href={"/auth/signup"}>
-            <div className="w-full text-[18px] font-semibold py-6 flex items-center cursor-pointer text-black-2 justify-center border border-black-2 rounded-[64px]">
+            <div className="w-full text-[18px] font-semibold py-4 flex items-center cursor-pointer text-black-2 justify-center border border-black-2 rounded-[64px]">
               Get started
             </div>
           </Link>
         </div>
 
-        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-10">
+        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-18">
           <div className="w-full flex justify-center ">
             <Image
               src={"/designs/ellipse.svg"}
@@ -106,9 +106,9 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-8 grid gap-y-4">
-          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
-            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
-              <div className="w-[28px] aspect-square">
+          <div className="grid transition-all ease-in duration-500 hover:scale-110 hover:translate-x-[8px] grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border-2 border-black-2 rounded-full">
+              <div className="w-[20px] aspect-square">
                 <Image
                   src={"/icons/basic-logo.svg"}
                   alt="laptop image"
@@ -122,9 +122,9 @@ export default function Home() {
               Basic
             </div>
           </div>
-          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start ">
-            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
-              <div className="w-[28px] aspect-square">
+          <div className="grid transition-all ease-in duration-500 hover:scale-110 hover:translate-x-[8px] grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start ">
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border-2 border-black-2 rounded-full">
+              <div className="w-[20px] aspect-square">
                 <Image
                   src={"/icons/inter-logo.svg"}
                   alt="laptop image"
@@ -138,9 +138,9 @@ export default function Home() {
               Intermediate
             </div>
           </div>
-          <div className="grid grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
-            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border border-black-2 rounded-full">
-              <div className="w-[28px] aspect-square">
+          <div className="grid transition-all ease-in duration-500 hover:scale-110 hover:translate-x-[8px] grid-cols-[max-content_max-content] gap-x-8 place-items-center justify-items-start">
+            <div className="flex justify-center items-center pr-1 pb-1  w-[56px] h-auto aspect-square border-2 border-black-2 rounded-full">
+              <div className="w-[20px] aspect-square">
                 <Image
                   src={"/icons/advanced-logo.svg"}
                   alt="laptop image"

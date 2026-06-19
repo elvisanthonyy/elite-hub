@@ -31,7 +31,7 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
 
   return (
     <div
-      className={`cursor-pointer w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
+      className={`cursor-pointer transition-all ease-in duration-500 hover:scale-105 hover:mx-4 w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
     >
       <div className="h-[144px] overflow-hidden w-[384px] mb-2 bg-black-3">
         <Image
@@ -64,9 +64,9 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
             onClick={() =>
               router.push(`/course/${course?.name.toLocaleLowerCase()}`)
             }
-            className="flex w-fit text-[14px] rounded-[4px] bg-primary-3 text-white-1 px-8 py-[12px]"
+            className="flex w-fit text-[14px] rounded-[8px] bg-primary-3 text-white-1 px-8 py-[8px]"
           >
-            Eroll
+            Enroll
           </div>
         </div>
       </div>
