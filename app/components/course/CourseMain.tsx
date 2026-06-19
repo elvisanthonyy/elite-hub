@@ -116,7 +116,11 @@ const CourseMain = ({ course, user }: ChildProps) => {
         </div>
         <ul className="mt-2 ">
           {course.skills.map((skill) => (
-            <li key={skill} className="text-[16px] text-black-5">
+            <li
+              key={skill}
+              className="text-[16px] text-black-5 flex items-center"
+            >
+              <div className="h-[6px] aspect-square bg-primary-3 rounded-full mr-2"></div>
               {skill}
             </li>
           ))}
@@ -126,7 +130,11 @@ const CourseMain = ({ course, user }: ChildProps) => {
         </div>
         <ul className="mt-2">
           {course.requirements.map((requirement) => (
-            <li key={requirement} className="text-[16px] text-black-5">
+            <li
+              key={requirement}
+              className="text-[16px] text-black-5 flex items-center"
+            >
+              <div className="h-[6px] aspect-square bg-primary-3 rounded-full mr-2"></div>
               {requirement}
             </li>
           ))}
