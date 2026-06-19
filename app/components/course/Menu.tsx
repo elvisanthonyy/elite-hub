@@ -101,7 +101,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: ChildProps) => {
             </div>
           </div>
           <Link className="w-full cursor-pointer" href={"/auth/login"}>
-            <button className="bg-primary-3 text-white-2 text-[16px] w-full font-bold rounded-[40px] px-16 py-4">
+            <button className="bg-black-2 text-white-2 text-[16px] w-full font-bold rounded-[40px] px-16 py-4">
               Login
             </button>
           </Link>
