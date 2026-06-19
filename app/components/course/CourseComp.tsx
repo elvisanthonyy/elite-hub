@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { ICourse } from "@/models/courses";
+import Image from "next/image";
 
 interface ChildProps {
   index: number;
@@ -31,9 +32,17 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
   return (
     <div
       onClick={() => router.push(`/course/${course?.name.toLocaleLowerCase()}`)}
-      className={`cursor-pointer w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
+      className={`cursor-pointer top-[100px] relative w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
     >
-      <div className="h-[144px] w-[384px] mb-2 bg-black-3"></div>
+      <div className="h-[144px] overflow-hidden w-[384px] mb-2 bg-black-3">
+        <Image
+          src={"/images/course-image.jpg"}
+          alt="course image"
+          width={1000}
+          height={1000}
+          className="h-full object-cover"
+        />
+      </div>
       <div className="px-[18px] pb-4">
         <div className="font-semibold text-[16px] text-black">
           {mainCourseName}

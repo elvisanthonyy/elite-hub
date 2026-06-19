@@ -52,7 +52,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
 
   useEffect(() => {
     const alreadyAddedByUser = user?.courses.find(
-      (it: Course) => it.courseId._id.toString() === course._id.toString()
+      (it: Course) => it.courseId._id.toString() === course._id.toString(),
     );
 
     if (!alreadyAddedByUser) {
@@ -72,70 +72,68 @@ const CourseMain = ({ course, user }: ChildProps) => {
   }, []);
 
   return (
-    <div className="z-40 flex flex-col items-center mt-22 min-h-[90dvh] rounded-lg w-full bg-white mx-auto">
-      <div className="mt-10 text-lg  font-bold text-gray-800">
-        {course.name.toUpperCase()}
+    <div className="z-40 flex mt-8 flex-col items-center min-h-[90dvh] rounded-lg w-full px-4">
+      <div className="w-full">
+        <div className="flex mb-3 items-center justify-between w-full">
+          <div className="mt-30 text-[28px] font-bold text-black-2">
+            {course.name.toUpperCase()}
+          </div>
+          <div className="mt-30 text-[18px]  font-bold text-black-4">
+            {course.amount}
+          </div>
+        </div>
+        <div>
+          <div className="text-[16px] mb-6 font-regular text-black-5">
+            {course.description}
+          </div>
+        </div>
+        {inUser ? (
+          !paid ? (
+            <button
+              onClick={() => router.push(`/${course.name}/payment`)}
+              className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
+            >
+              Make Payment
+            </button>
+          ) : (
+            <button className="cursor-pointer w-[90%] h-12 rounded-4 bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center">
+              View course
+            </button>
+          )
+        ) : (
+          <button
+            onClick={addCourse}
+            className="cursor-pointer w-full py-5 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
+          >
+            {loading ? <ButtonLoading /> : "Add"}
+          </button>
+        )}
       </div>
-      <div className="w-[90%] mb-10 mt-7 p-3  min-h-40">
-        <div className="mb-2 font-bold text-gray-600">Description</div>
-        <div className="text-sm">{course.description}</div>
-        <div className="mt-4 font-bold text-gray-600">Skills to Learn</div>
+
+      <div className="w-full border-t-[0.3px] border-black-5 mb-10 mt-8 min-h-40">
+        <div className="mt-3 font-bold text-[18px] text-black-2">
+          Skills to Learn
+        </div>
         <ul className="mt-2 ">
           {course.skills.map((skill) => (
-            <li key={skill} className="text-sm">
-              * {skill}
+            <li key={skill} className="text-[16px] text-black-5">
+              {skill}
             </li>
           ))}
         </ul>
-        <div className="mt-4 font-bold text-gray-600">Requirements</div>
+        <div className="mt-3 font-bold text-[18px] text-black-2">
+          Requirements
+        </div>
         <ul className="mt-2">
           {course.requirements.map((requirement) => (
-            <li key={requirement} className="text-sm">
-              * {requirement}
+            <li key={requirement} className="text-[16px] text-black-5">
+              {requirement}
             </li>
           ))}
         </ul>
-        <div className="mt-4 font-bold text-gray-600">Duration</div>
-        <div>2 months</div>
-        <div className="mt-4 font-bold text-gray-600">{`N${course.amount}`}</div>
+        <div className="mt-3 font-bold text-[18px] text-black-2">Duration</div>
+        <div className="text-[16px] text-black-5">2 months</div>
       </div>
-
-      {userError && (
-        <div className="text-red-600 text-sm mb-5">{userError}</div>
-      )}
-      {userError && (
-        <button
-          onClick={() => {
-            setLoading(true);
-            router.push(`/auth/login?redirectUrl=course/${course.name}`);
-          }}
-          className="cursor-pointer bg-black rounded-lg w-[90%] h-12 text-white text-sm mb-5"
-        >
-          Login
-        </button>
-      )}
-
-      {inUser ? (
-        !paid ? (
-          <button
-            onClick={() => router.push(`/${course.name}/payment`)}
-            className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
-          >
-            Make Payment
-          </button>
-        ) : (
-          <button className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center">
-            View course
-          </button>
-        )
-      ) : (
-        <button
-          onClick={addCourse}
-          className="cursor-pointer w-[90%] h-12 rounded-lg bg-linear-to-br from-blue-700 to-blue-500 text-white mt-auto mb-20 flex justify-center items-center"
-        >
-          {loading ? <ButtonLoading /> : "Add"}
-        </button>
-      )}
     </div>
   );
 };
