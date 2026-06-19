@@ -168,7 +168,7 @@ export default function Home() {
           About
         </div>
       </div>
-      <div className="flex items-center min-h-65 hidden-scroll mb-3 pb-5 w-[95%] mx-auto overflow-x-scroll">
+      <div className="flex items-center h-[340px] hidden-scroll mb-3 pb-5 w-[95%] mx-auto overflow-x-scroll overflow-y-hidden">
         {loading ? (
           <MainLoading />
         ) : (

@@ -31,8 +31,7 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
 
   return (
     <div
-      onClick={() => router.push(`/course/${course?.name.toLocaleLowerCase()}`)}
-      className={`cursor-pointer top-[100px] relative w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
+      className={`cursor-pointer w-[246px] bg-white border border-[0.7px] border-white-3 relative flex flex-col overflow-hidden shrink-0 h-[322px] mr-1 rounded-[8px]`}
     >
       <div className="h-[144px] overflow-hidden w-[384px] mb-2 bg-black-3">
         <Image
@@ -44,14 +43,29 @@ const CourseComp = ({ index, course, name }: ChildProps) => {
         />
       </div>
       <div className="px-[18px] pb-4">
-        <div className="font-semibold text-[16px] text-black">
-          {mainCourseName}
+        <div className="flex w-full justify-between font-semibold text-[16px] text-black">
+          <div>{mainCourseName}</div>
+
+          <div className="w-[58px]">
+            <Image
+              src={"/icons/inter-card-logo.svg"}
+              alt="course image"
+              width={1000}
+              height={1000}
+              className="w-full object-cover"
+            />
+          </div>
         </div>
         <div className="mt-2 text-xs border-t border-white-3 py-2 text-black-5 text-gray-950">
           {course?.description}
         </div>
         <div className="w-full mt-2 flex justify-end">
-          <div className="flex w-fit text-[14px] rounded-[4px] bg-primary-3 text-white-1 px-8 py-[12px]">
+          <div
+            onClick={() =>
+              router.push(`/course/${course?.name.toLocaleLowerCase()}`)
+            }
+            className="flex w-fit text-[14px] rounded-[4px] bg-primary-3 text-white-1 px-8 py-[12px]"
+          >
             Eroll
           </div>
         </div>
