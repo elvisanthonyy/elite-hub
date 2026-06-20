@@ -73,14 +73,14 @@ const LoginMain = () => {
           <div className="my-3 text-red-500 w-full text-right">{message}</div>
         )}
         <input
-          className="flex shrink-0 text-black-2 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-2 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("password", {
             required: "password is required",
           })}
@@ -89,7 +89,7 @@ const LoginMain = () => {
         />
 
         <button
-          className="cursor-pointer flex text-[16px] justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-5 my-2 rounded-[32px] bg-black-3 text-white"
+          className="cursor-pointer flex text-[16px] justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"
           type="submit"
         >
           {loading ? <ButtonLoading /> : "Login"}

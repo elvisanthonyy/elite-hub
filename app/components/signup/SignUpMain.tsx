@@ -71,14 +71,14 @@ const SignUpMain = () => {
           </div>
         )}
         <input
-          className="flex shrink-0 text-black-2 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("name", {
             required: "name is required",
           })}
           placeholder="name"
         />
         <input
-          className="flex shrink-0 text-black-2 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("email", {
             required: "email is required",
           })}
@@ -94,7 +94,7 @@ const SignUpMain = () => {
         />
 
         <button
-          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-[16px] w-full focus:outline-none py-5 my-2 rounded-[32px] bg-black-3 text-white"
+          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-[16px] w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"
           type="submit"
         >
           {loading ? <ButtonLoading /> : "Sign Up"}
