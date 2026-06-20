@@ -25,11 +25,11 @@ const DashboardMain = ({ user }: ChildProps) => {
   }, []);
   return (
     <div className="w-full px-4 flex flex-col min-h-dvh">
-      <div className="flex flex-col relative mt-36 overflow-hidden py-5 px-6 mx-auto rounded-2xl w-full h-70 bg-black-2">
+      <div className="flex flex-col relative mt-22 overflow-hidden py-5 px-6 mx-auto rounded-2xl w-full h-70 bg-black-2">
         <div className="text-white text-[24px]">
           {`Welcome, ${user?.name?.split(" ")[0]}`}
         </div>
-        <div className="flex text-[14px] z-30 items-center w-full mt-auto">
+        <div className="flex text-[14px] z-22 items-center w-full mt-auto">
           <div className="flex border border-white-3 backdrop-blur-xl mr-3 mb-2 py-2 px-4 rounded-[32px] text-white bg-white/5">
             <div className="mr-4 text-gray-100">Paid Courses:</div>
             <div>{paidCourses?.length}</div>
@@ -42,7 +42,7 @@ const DashboardMain = ({ user }: ChildProps) => {
             <div>{user?.courses?.length}</div>
           </div>
         </div>
-        <div className="w-[138px] aspect-square rounded-full bg-primary-3 z-10 blur-lg absolute -bottom-12 -right-12"></div>
+        <div className="w-[138px] aspect-square rounded-full bg-primary-3 z-10 blur-[50px] absolute -bottom-15 -right-12"></div>
       </div>
       <div className="absolute flex items-center bottom-8 right-4 p-4 bg-primary-3 text-white rounded-[8px]">
         <div className="w-[22px] aspect-square mr-3">

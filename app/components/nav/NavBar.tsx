@@ -30,7 +30,7 @@ const NavBar = ({ name }: ChildProps) => {
           <div className="text-lg text-black-2 font-bold">Elite Hub</div>
         </div>
 
-        {name !== "home" && <BottomNav />}
+        {name !== "home" && name !== "dashboard" ? <BottomNav /> : null}
         <div
           onClick={() =>
             isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)

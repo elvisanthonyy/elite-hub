@@ -33,8 +33,7 @@ const page = async () => {
 
   return (
     <div>
-      <NavBar />
-
+      <NavBar name="dashboard" />
       <DashboardMain user={data?.user} />
     </div>
   );
