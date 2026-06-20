@@ -83,7 +83,7 @@ const VerifyMain = ({ token }: ChildProps) => {
             <div className="flex flex-col items-center">
               <div className="mb-4">{message}</div>
               <Link
-                href={"/auth/signup"}
+                href={"/auth/newlink"}
                 className="px-4 py-2 pointer-cursor bg-black-3 text-white rounded-[8px]"
               >
                 Get New Link

@@ -18,7 +18,11 @@ const LoginMain = () => {
   const redirectURL = param.get("redirectUrl");
   console.log(redirectURL);
 
-  const { register, handleSubmit } = useForm<FormFields>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>();
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -69,13 +73,27 @@ const LoginMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
+        {errors.email && (
+          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
+            {errors.email.message}
+          </div>
+        )}
         <input
           className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("email", {
             required: "email is required",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Please enter a valid email",
+            },
           })}
           placeholder="email"
         />
+        {errors.password && (
+          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
+            {errors.password.message}
+          </div>
+        )}
         <input
           className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("password", {
@@ -84,6 +102,9 @@ const LoginMain = () => {
           type="password"
           placeholder="password"
         />
+        <div className="w-full text-[14px] text-blue-500 flex justify-end mb-4 cursor-pointer">
+          <Link href="/auth/forgot-password">Forgot Password?</Link>
+        </div>
         {message && (
           <div className="my-3 text-red-500 w-full text-center">{message}</div>
         )}

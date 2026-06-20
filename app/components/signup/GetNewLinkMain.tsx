@@ -8,12 +8,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 interface FormFields {
-  name: string;
   email: string;
-  password: string;
 }
 
-const SignUpMain = () => {
+const GetNewLink = () => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,10 +20,11 @@ const SignUpMain = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormFields>();
+
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     setLoading(true);
     api
-      .post("/api/signup", data)
+      .post("/api/newlink", data)
       .then((res) => {
         if (res.data.status === "okay") {
           setError(false);
@@ -62,27 +61,16 @@ const SignUpMain = () => {
             className="w-[40px]"
           />
         </div>
-        <div className="font-bold text-[24px]">Sign Up</div>
+        <div className="font-bold text-[24px]">Get Link</div>
       </div>
       <form
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {errors.name && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.name.message}
-          </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("name", {
-            required: "name is required",
-          })}
-          placeholder="name"
-        />
-
         {errors.email && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
+          <div
+            className={`my-3 text-red-500 text-[14px] text-left w-full px-4`}
+          >
             {errors.email.message}
           </div>
         )}
@@ -98,20 +86,6 @@ const SignUpMain = () => {
           placeholder="email"
         />
 
-        {errors.password && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.password.message}
-          </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-6 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("password", {
-            required: "password is required",
-          })}
-          type="password"
-          placeholder="password"
-        />
-
         {message && (
           <div
             className={`text-[14px] ${error ? "text-red-500" : "text-green-600"}`}
@@ -123,19 +97,11 @@ const SignUpMain = () => {
           className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-[16px] w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"
           type="submit"
         >
-          {loading ? <ButtonLoading /> : "Sign Up"}
+          {loading ? <ButtonLoading /> : "Send Link"}
         </button>
       </form>
-      <div className="flex items-center">
-        Have an account?
-        <Link className="ml-2" href="/auth/login">
-          <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">
-            Login
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default SignUpMain;
+export default GetNewLink;
