@@ -92,19 +92,19 @@ const CourseMain = ({ course, user }: ChildProps) => {
           !paid ? (
             <button
               onClick={() => router.push(`/${course.name}/payment`)}
-              className="cursor-pointer w-full py-5 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
+              className="cursor-pointer w-full py-4 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
             >
               Make Payment
             </button>
           ) : (
-            <button className="cursor-pointer w-full py-5 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center">
+            <button className="cursor-pointer w-full py-4 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center">
               View course
             </button>
           )
         ) : (
           <button
             onClick={addCourse}
-            className="cursor-pointer w-full py-5 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
+            className="cursor-pointer w-full py-4 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
           >
             {loading ? <ButtonLoading /> : "Add"}
           </button>

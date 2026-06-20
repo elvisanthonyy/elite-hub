@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useUser } from "@/app/context/UserContext";
+import { useEffect, useState } from "react";
 
 interface ChildProps {
   isMenuOpen: boolean;
@@ -8,6 +9,12 @@ interface ChildProps {
 }
 const Menu = ({ isMenuOpen, setIsMenuOpen }: ChildProps) => {
   const { session } = useUser();
+  useEffect(() => {
+    if (session) {
+      console.log("true");
+    }
+  }, [session]);
+
   return (
     <div
       onClick={() => setIsMenuOpen(false)}
