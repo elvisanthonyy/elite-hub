@@ -69,7 +69,9 @@ const LoginMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {message && <div className="my-3 text-red-500">{message}</div>}
+        {message && (
+          <div className="my-3 text-red-500 w-full text-right">{message}</div>
+        )}
         <input
           className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
           {...register("email", {

@@ -20,6 +20,7 @@ const SignUpMain = () => {
   const { register, handleSubmit } = useForm<FormFields>();
 
   const onSubmit: SubmitHandler<FormFields> = (data) => {
+    setLoading(true);
     api
       .post("/api/signup", data)
       .then((res) => {
@@ -30,9 +31,11 @@ const SignUpMain = () => {
           setError(true);
           setMessage(res.data.message);
         }
+        setLoading(false);
       })
       .catch((error) => {
         console.error("error", error);
+        setLoading(false);
       });
   };
   return (
@@ -53,7 +56,7 @@ const SignUpMain = () => {
             alt="logo"
             height={40}
             width={40}
-            className="w-[32px]"
+            className="w-[40px]"
           />
         </div>
         <div className="font-bold text-[20px]">Sign Up</div>
@@ -68,21 +71,21 @@ const SignUpMain = () => {
           </div>
         )}
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
           {...register("name", {
             required: "name is required",
           })}
           placeholder="name"
         />
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
           {...register("password", {
             required: "password is required",
           })}
@@ -91,7 +94,7 @@ const SignUpMain = () => {
         />
 
         <button
-          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-6 my-2 rounded-[32px] bg-black-3 text-white"
+          className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-5 my-2 rounded-[32px] bg-black-3 text-white"
           type="submit"
         >
           {loading ? <ButtonLoading /> : "Sign Up"}

@@ -63,13 +63,10 @@ body {
 
 @keyframes loading-animation {
   0% {
-    color: #777777;
-  }
-  70% {
-    color: rgb(199, 199, 0);
+    opacity: 0.5;
   }
   100% {
-    color: #777777;
+    opacity: 1;
   }
 }
 
@@ -79,6 +76,18 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes loading-animate-icon {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -92,5 +101,5 @@ body {
 }
 
 .loading-animation {
-  animation: loading-animation 2s infinite linear;
+  animation: loading-animation 2s infinite ease-in-out alternate;
 }
