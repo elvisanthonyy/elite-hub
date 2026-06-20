@@ -26,7 +26,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: ChildProps) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex flex-col px-6 py-16 pt-20 bg-white w-[80%]"
+        className="flex flex-col pb-6 pt-20 bg-white w-[80%]"
       >
         <div className="w-full border-b py-2 border-black-5 mb-4 grid grid-cols-[max-content_max-content_max-content] gap-x-4 place-items-center justify-items-start ">
           <div className="w-[52px] overflow-hidden aspect-square border-2 border-black-4 rounded-full">

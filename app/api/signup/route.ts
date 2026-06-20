@@ -3,6 +3,7 @@ import dbConnect from "@/libs/dbConnect";
 import { User } from "@/models/user";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
+import { sendVerificationMessage } from "@/libs/sendVerificationLink";
 
 interface ReqBody {
   name: string;
@@ -34,6 +35,8 @@ const handler = async (req: Request) => {
       courses: [],
     });
     await user.save();
+
+    await sendVerificationMessage(email, verificationToken);
 
     return NextResponse.json({
       status: "okay",
