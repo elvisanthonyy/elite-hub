@@ -69,25 +69,24 @@ const LoginMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {message && (
-          <div className="my-3 text-red-500 w-full text-right">{message}</div>
-        )}
         <input
-          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("password", {
             required: "password is required",
           })}
           type="password"
           placeholder="password"
         />
-
+        {message && (
+          <div className="my-3 text-red-500 w-full text-center">{message}</div>
+        )}
         <button
           className="cursor-pointer flex text-[16px] justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"
           type="submit"

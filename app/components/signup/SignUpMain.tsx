@@ -65,34 +65,33 @@ const SignUpMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {message && (
-          <div className={`my-3 ${error ? "text-red-500" : "text-green-600"}`}>
-            {message}
-          </div>
-        )}
         <input
-          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("name", {
             required: "name is required",
           })}
           placeholder="name"
         />
         <input
-          className="flex shrink-0 text-black-2 mb-4 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-2 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
+          className="flex shrink-0 text-black-3 mb-6 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
           {...register("password", {
             required: "password is required",
           })}
           type="password"
           placeholder="password"
         />
-
+        {message && (
+          <div className={`my-3 ${error ? "text-red-500" : "text-green-600"}`}>
+            {message}
+          </div>
+        )}
         <button
           className="cursor-pointer flex justify-center items-center p-2 shrink-0 text-[16px] w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"
           type="submit"
