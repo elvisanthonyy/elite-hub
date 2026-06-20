@@ -32,8 +32,8 @@ const page = async () => {
 
   return (
     <div>
-      <DashboardNav user={data.user} />
-      <DashboardMain user={data.user} />
+      <DashboardNav user={data?.user} />
+      <DashboardMain user={data?.user} />
     </div>
   );
 };

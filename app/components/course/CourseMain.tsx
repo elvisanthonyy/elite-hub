@@ -17,6 +17,7 @@ interface ChildProps {
 }
 
 const CourseMain = ({ course, user }: ChildProps) => {
+  console.log(`user`, user);
   const router = useRouter();
   const [userError, setUserError] = useState("");
   const [inUser, setInUser] = useState(false);
@@ -24,7 +25,6 @@ const CourseMain = ({ course, user }: ChildProps) => {
   const [loading, setLoading] = useState(false);
 
   const addCourse = () => {
-    alert("Hi");
     setLoading(true);
     if (!user) {
       setLoading(false);
