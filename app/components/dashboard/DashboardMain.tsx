@@ -2,6 +2,7 @@
 import { Course } from "../course/MyCoursesMain";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ChildProps {
   user: {
@@ -24,41 +25,37 @@ const DashboardMain = ({ user }: ChildProps) => {
   }, []);
   return (
     <div className="w-full px-4 flex flex-col min-h-dvh">
-      <div className="relative mt-36 overflow-hidden p-5 py-7 mx-auto rounded-2xl w-full h-70 bg-linear-to-br  from-blue-800 to-blue-500">
-        <div className="text-white text-xl">
+      <div className="flex flex-col relative mt-36 overflow-hidden py-5 px-6 mx-auto rounded-2xl w-full h-70 bg-black-2">
+        <div className="text-white text-[24px]">
           {`Welcome, ${user?.name?.split(" ")[0]}`}
         </div>
-        <div className="flex flex-col justify-center w-full h-30 p-3 border border-white/20 bg-white/20 rounded-lg my-5">
-          <div className="flex mb-2 text-white">
-            <div className="mr-2 font-semibold text-gray-100">
-              Paid Courses:
-            </div>
+        <div className="flex text-[14px] z-30 items-center w-full mt-auto">
+          <div className="flex border border-white-3 backdrop-blur-xl mr-3 mb-2 py-2 px-4 rounded-[32px] text-white bg-white/5">
+            <div className="mr-4 text-gray-100">Paid Courses:</div>
             <div>{paidCourses?.length}</div>
           </div>
           <div
             onClick={() => router.push("/my/courses")}
-            className="flex cursor-pointer font-semibold text-gray-100 "
+            className="flex mb-2 border border-white-3 backdrop-blur-xl py-2 px-4 rounded-[32px] text-white bg-white/5 "
           >
             <div className="mr-2">All Courses:</div>
             <div>{user?.courses?.length}</div>
           </div>
         </div>
-        <div className="w-full flex justify-between items-center">
-          <button
-            onClick={() => router.push("/course/all")}
-            className="w-[60%] text-sm cursor-pointer rounded-lg h-10 flex justify-center items-center text-black bg-white"
-          >
-            Add Courses
-          </button>
-          <div className="border w-[35%] border-white/20 bg-white/20  flex text-xl justify-center items-center h-10 text-white rounded-lg">
-            {user?.courses?.length > 0 ? user.courses.length : "0"}
-          </div>
-        </div>
+        <div className="w-[138px] aspect-square rounded-full bg-primary-3 z-10 blur-lg absolute -bottom-12 -right-12"></div>
       </div>
-      <div className="w-[90%] h-35 bg-white rounded-2xl mt-5 mx-auto"></div>
-      <div className="flex items-center mt-5 justify-between w-[90%] mx-auto">
-        <div className="w-[48%] h-70 bg-white rounded-2xl"></div>
-        <div className="w-[48%] h-70 bg-white rounded-2xl"></div>
+      <div className="absolute flex items-center bottom-8 right-4 p-4 bg-primary-3 text-white rounded-[8px]">
+        <div className="w-[22px] aspect-square mr-3">
+          <Image
+            src={"/icons/plus-icon.svg"}
+            height={1000}
+            width={1000}
+            draggable={true}
+            alt="plus icon"
+            className="w-full"
+          />
+        </div>{" "}
+        Add course
       </div>
     </div>
   );

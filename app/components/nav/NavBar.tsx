@@ -40,17 +40,17 @@ const NavBar = ({ name }: ChildProps) => {
           <span
             className={`transition-all ease-in w-6 m-1 ${
               isMenuOpen ? "-rotate-45 translate-y-1" : ""
-            } rounded-2xl h-0.75 bg-black block`}
+            } rounded-2xl h-0.5 bg-black-2 block`}
           ></span>
           <span
             className={`transition-all ease-in w-6 mb-1 ${
               isMenuOpen ? "opacity-0" : ""
-            } rounded-2xl h-0.75 bg-black block`}
+            } rounded-2xl h-0.5 bg-black-2 block`}
           ></span>
           <span
             className={`transition-all rounded-xl ease-in w-6 mb-1 ${
               isMenuOpen ? "rotate-45 -translate-y-2" : ""
-            } rounded-2xl h-0.75 bg-black block`}
+            } rounded-2xl h-0.5 bg-black-2 block`}
           ></span>
         </div>
       </div>

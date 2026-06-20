@@ -34,6 +34,7 @@ const page = async () => {
   return (
     <div>
       <NavBar />
+
       <DashboardMain user={data?.user} />
     </div>
   );
