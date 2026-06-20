@@ -73,10 +73,10 @@ const CourseMain = ({ course, user }: ChildProps) => {
   }, []);
 
   return (
-    <div className="z-40 flex mt-8 flex-col items-center min-h-[90dvh] rounded-lg w-full px-4">
+    <div className="z-40 flex mt-4 flex-col items-center min-h-[90dvh] rounded-lg w-full px-4">
       <div className="w-full">
         <div className="flex mb-3 items-center justify-between w-full">
-          <div className="mt-30 text-[28px] font-bold text-black-2">
+          <div className="mt-30 text-[24px] font-bold text-black-2">
             {course.name.toUpperCase()}
           </div>
           <div className="mt-30 text-[18px]  font-bold text-black-4">
@@ -84,7 +84,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
           </div>
         </div>
         <div>
-          <div className="text-[16px] mb-6 font-regular text-black-5">
+          <div className="text-[16px] mb-4 font-regular text-black-5">
             {course.description}
           </div>
         </div>

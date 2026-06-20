@@ -5,6 +5,7 @@ import DashboardNav from "../components/dashboard/DashboardNav";
 import DashboardMain from "../components/dashboard/DashboardMain";
 import { cookies } from "next/headers";
 import dbConnect from "@/libs/dbConnect";
+import NavBar from "../components/nav/NavBar";
 
 export const metadata = {
   title: "Dashboard",
@@ -32,7 +33,7 @@ const page = async () => {
 
   return (
     <div>
-      <DashboardNav user={data?.user} />
+      <NavBar />
       <DashboardMain user={data?.user} />
     </div>
   );

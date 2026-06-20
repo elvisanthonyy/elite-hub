@@ -18,13 +18,13 @@ const DashboardMain = ({ user }: ChildProps) => {
     //get paid courses
     setPaidCourses(
       user?.courses.filter(
-        (it: Course) => it.userCourseId.paymentStatus === "paid"
-      )
+        (it: Course) => it.userCourseId.paymentStatus === "paid",
+      ),
     );
   }, []);
   return (
-    <div className="w-full flex flex-col min-h-dvh">
-      <div className="relative mt-25 overflow-hidden p-5 py-7 mx-auto rounded-2xl w-[90%] h-70 bg-linear-to-br  from-blue-800 to-blue-500">
+    <div className="w-full px-4 flex flex-col min-h-dvh">
+      <div className="relative mt-36 overflow-hidden p-5 py-7 mx-auto rounded-2xl w-full h-70 bg-linear-to-br  from-blue-800 to-blue-500">
         <div className="text-white text-xl">
           {`Welcome, ${user?.name?.split(" ")[0]}`}
         </div>
@@ -33,14 +33,14 @@ const DashboardMain = ({ user }: ChildProps) => {
             <div className="mr-2 font-semibold text-gray-100">
               Paid Courses:
             </div>
-            <div>{paidCourses.length}</div>
+            <div>{paidCourses?.length}</div>
           </div>
           <div
             onClick={() => router.push("/my/courses")}
             className="flex cursor-pointer font-semibold text-gray-100 "
           >
             <div className="mr-2">All Courses:</div>
-            <div>{user.courses.length}</div>
+            <div>{user?.courses?.length}</div>
           </div>
         </div>
         <div className="w-full flex justify-between items-center">
@@ -51,7 +51,7 @@ const DashboardMain = ({ user }: ChildProps) => {
             Add Courses
           </button>
           <div className="border w-[35%] border-white/20 bg-white/20  flex text-xl justify-center items-center h-10 text-white rounded-lg">
-            {user.courses.length > 0 ? user.courses.length : "0"}
+            {user?.courses?.length > 0 ? user.courses.length : "0"}
           </div>
         </div>
       </div>
