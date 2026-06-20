@@ -59,7 +59,7 @@ const LoginMain = () => {
             alt="logo"
             height={40}
             width={40}
-            className="w-[32px]"
+            className="w-[40px]"
           />
         </div>
         <div className="font-bold text-[20px]">Login</div>
@@ -73,14 +73,14 @@ const LoginMain = () => {
           <div className="my-3 text-red-500 w-full text-right">{message}</div>
         )}
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[8px]"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[8px]"
           {...register("password", {
             required: "password is required",
           })}

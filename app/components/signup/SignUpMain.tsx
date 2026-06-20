@@ -71,21 +71,21 @@ const SignUpMain = () => {
           </div>
         )}
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[8px]"
           {...register("name", {
             required: "name is required",
           })}
           placeholder="name"
         />
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[8px]"
           {...register("email", {
             required: "email is required",
           })}
           placeholder="email"
         />
         <input
-          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 border-b border-black-5"
+          className="flex shrink-0 text-black-5 mb-6 text-[18px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[8px]"
           {...register("password", {
             required: "password is required",
           })}
