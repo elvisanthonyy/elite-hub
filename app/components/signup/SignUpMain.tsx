@@ -5,7 +5,11 @@ import api from "@/libs/api";
 import Link from "next/link";
 import ButtonLoading from "../Loading/ButtonLoading";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import InputError from "../others/InputError";
+import { FaLock } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 interface FormFields {
   name: string;
@@ -17,6 +21,7 @@ const SignUpMain = () => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -68,49 +73,63 @@ const SignUpMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {errors.name && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.name.message}
+        {errors.name && <InputError message={errors.name.message} />}
+        <div className="relative w-full h-fit mb-4">
+          <div className="absolute top-[50%] -translate-y-[50%] left-3 text-black-4">
+            <FaUser className="" />
           </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("name", {
-            required: "name is required",
-          })}
-          placeholder="name"
-        />
-
-        {errors.email && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.email.message}
+          <input
+            className="flex shrink-0 text-black-3 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
+            {...register("name", {
+              required: "name is required",
+            })}
+            placeholder="name"
+          />
+        </div>
+        {errors.email && <InputError message={errors.email.message} />}
+        <div className="relative w-full h-fit mb-4">
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] left-3 text-black-4">
+            <FaEnvelope className="" />
           </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("email", {
-            required: "email is required",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Please enter a valid email",
-            },
-          })}
-          placeholder="email"
-        />
-
-        {errors.password && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.password.message}
+          <input
+            className="flex shrink-0 text-black-3 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
+            {...register("email", {
+              required: "email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Please enter a valid email",
+              },
+            })}
+            placeholder="email"
+          />
+        </div>
+        {errors.password && <InputError message={errors.password.message} />}
+        <div className="relative w-full h-fit mb-4">
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] left-3 text-black-4">
+            <FaLock className="" />
           </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-6 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("password", {
-            required: "password is required",
-          })}
-          type="password"
-          placeholder="password"
-        />
+          <input
+            className="flex shrink-0 text-black-3  text-[16px] text-sm w-full focus:outline-none py-3.5 px-10 bg-white-2 rounded-[16px]"
+            {...register("password", {
+              required: "password is required",
+            })}
+            type={showPassword ? "text" : "password"}
+            placeholder="password"
+          />
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] right-4 text-black-4">
+            {showPassword ? (
+              <FaEyeSlash
+                className="cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <FaEye
+                className="cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
+          </div>
+        </div>
 
         {message && (
           <div

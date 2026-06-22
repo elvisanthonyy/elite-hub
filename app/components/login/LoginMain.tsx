@@ -7,6 +7,11 @@ import { redirect } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import ButtonLoading from "../Loading/ButtonLoading";
 import Link from "next/link";
+import InputError from "../others/InputError";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaLock } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 interface FormFields {
   email: string;
@@ -25,6 +30,7 @@ const LoginMain = () => {
   } = useForm<FormFields>();
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
     setLoading(true);
@@ -73,35 +79,50 @@ const LoginMain = () => {
         className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {errors.email && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.email.message}
+        {errors.email && <InputError message={errors.email.message} />}
+        <div className="relative w-full h-fit mb-4">
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] left-3 text-black-4">
+            <FaEnvelope className="" />
           </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("email", {
-            required: "email is required",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Please enter a valid email",
-            },
-          })}
-          placeholder="email"
-        />
-        {errors.password && (
-          <div className={`text-red-500 text-[14px] text-left w-full px-4`}>
-            {errors.password.message}
+          <input
+            className="flex shrink-0 text-black-3 text-[16px] text-sm w-full focus:outline-none py-3.5 px-10 bg-white-2 rounded-[16px]"
+            {...register("email", {
+              required: "email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Please enter a valid email",
+              },
+            })}
+            placeholder="email"
+          />
+        </div>
+        {errors.password && <InputError message={errors.password.message} />}
+        <div className="relative w-full h-fit mb-4">
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] left-3 text-black-4">
+            <FaLock className="" />
           </div>
-        )}
-        <input
-          className="flex shrink-0 text-black-3 mb-4 text-[16px] text-sm w-full focus:outline-none py-3.5 px-3 bg-white-2 rounded-[16px]"
-          {...register("password", {
-            required: "password is required",
-          })}
-          type="password"
-          placeholder="password"
-        />
+          <input
+            className="flex shrink-0 text-black-3  text-[16px] text-sm w-full focus:outline-none py-3.5 px-10 bg-white-2 rounded-[16px]"
+            {...register("password", {
+              required: "password is required",
+            })}
+            type={showPassword ? "text" : "password"}
+            placeholder="password"
+          />
+          <div className="absolute top-[50%] mt-[1.5px] -translate-y-[50%] right-4 text-black-4">
+            {showPassword ? (
+              <FaEyeSlash
+                className="cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <FaEye
+                className="cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
+          </div>
+        </div>
         <div className="w-full text-[14px] text-blue-500 flex justify-end mb-4 cursor-pointer">
           <Link href="/auth/forgot-password">Forgot Password?</Link>
         </div>
