@@ -36,6 +36,14 @@ const handler = async (req: Request) => {
     });
   }
 
+   if (!userCourse) {
+    return NextResponse.json({
+      status: "error",
+      course: userCourse,
+      message: "Course not found",
+    });
+  }
+
    if (userCourse.paymentStatus === "paid") {
     return NextResponse.json({
       status: "error",
@@ -51,16 +59,6 @@ const handler = async (req: Request) => {
       message: "Payment failed",
     });
   }
-
-
-  if (!userCourse) {
-    return NextResponse.json({
-      status: "error",
-      course: userCourse,
-      message: "Course not found",
-    });
-  }
-
 
 
   userCourse.paymentStatus = "paid";
