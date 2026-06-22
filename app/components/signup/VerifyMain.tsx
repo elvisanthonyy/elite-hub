@@ -4,6 +4,7 @@ import VerifyLoading from "../Loading/VerifyLoading";
 import api from "@/libs/api";
 import Link from "next/link";
 import Image from "next/image";
+import EliteLoading from "../Loading/EliteLoading";
 
 interface ChildProps {
   [key: string]: string | string[] | undefined;
@@ -36,16 +37,7 @@ const VerifyMain = ({ token }: ChildProps) => {
       </div>
       {loading ? (
         <div className="flex-col flex items-center">
-          <div className="h-10 aspect-square flex justify-center items-center ">
-            <Image
-              src={"/icons/elite-logo.svg"}
-              width={1000}
-              height={1000}
-              alt="elite logo"
-              className="w-full loading-animation"
-              draggable={false}
-            />
-          </div>
+          <EliteLoading />
 
           <div className="text-lg font-semibold w-full text-center mt-4">
             Verifying Email

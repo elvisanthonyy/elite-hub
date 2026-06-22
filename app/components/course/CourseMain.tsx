@@ -77,10 +77,10 @@ const CourseMain = ({ course, user }: ChildProps) => {
       <div className="w-full">
         <div className="flex mb-3 items-center justify-between w-full">
           <div className="mt-30 text-[24px] font-bold text-black-2">
-            {course.name.toUpperCase()}
+            {course?.name.toUpperCase()}
           </div>
           <div className="mt-30 text-[18px]  font-bold text-black-4">
-            {course.amount}
+            {course?.amount}
           </div>
         </div>
         <div>
@@ -91,7 +91,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
         {inUser ? (
           !paid ? (
             <button
-              onClick={() => router.push(`/${course.name}/payment`)}
+              onClick={() => router.push(`/${course?.name}/payment`)}
               className="cursor-pointer w-full py-4 rounded-[16px] bg-linear-to-br from-blue-700 to-blue-500 text-white flex justify-center items-center"
             >
               Make Payment

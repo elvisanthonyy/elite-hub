@@ -3,6 +3,7 @@ import mongoose, { Document, models, Model } from "mongoose";
 export interface IUserCourse extends Document {
   userId: string;
   courseId: string;
+  courseName: string;
   reference: string;
   paymentStatus: string;
   amount: number;
@@ -16,6 +17,10 @@ const userCourseSchema = new mongoose.Schema<IUserCourse>({
     required: true,
   },
   courseId: {
+    type: String,
+    required: true,
+  },
+  courseName: {
     type: String,
     required: true,
   },

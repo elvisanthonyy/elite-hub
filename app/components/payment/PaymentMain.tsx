@@ -52,7 +52,7 @@ const PaymentMain = ({ user, course }: ChildProps) => {
   useEffect(() => {
     //get userCourseId
     const userCourse = user.courses.find(
-      (it) => it.courseId._id.toString() === course._id.toString()
+      (it) => it.courseId._id.toString() === course._id.toString(),
     );
 
     setOrderId(userCourse?.userCourseId._id.toString());
@@ -64,17 +64,37 @@ const PaymentMain = ({ user, course }: ChildProps) => {
         strategy="afterInteractive"
       />
       <div className="flex w-full py-10 h-[90dvh] bg-white mt-22">
-        <div className="flex-col w-[90%] flex mx-auto">
-          <div>{user.name}</div>
-          <div>{user.email}</div>
-          <div>{course.name}</div>
-          <div>{course.description}</div>
-          <div>{course.amount}</div>
+        <div className="flex-col w-full  px-6 flex mx-auto">
+          <div className="flex flex-col gap-2 mb-4">
+            <div className="font-semibold text-[18px] text-black-3">Name</div>
+            <div className="border rounded-[8px] border-black-5 text-[16px] text-2xl px-2 py-4">
+              {user.name}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 mb-4">
+            <div className="font-semibold text-[18px] text-black-3">Email</div>
+            <div className="border rounded-[8px] border-black-5 text-[16px] text-2xl px-2 py-4">
+              {user.email}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 mb-4">
+            <div className="font-semibold text-[18px] text-black-3">Course</div>
+            <div className="border rounded-[8px] border-black-5/30 text-[16px] text-2xl px-2 py-4">
+              {course.name}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2 mb-4">
+            <div className="font-semibold text-[18px] text-black-3">Amount</div>
+            <div className="border rounded-[8px] border-black-5/30 text-[16px] text-2xl px-2 py-4">
+              {`₦${course.amount}`}
+            </div>
+          </div>
 
           <button
             onClick={makePayment}
             type="button"
-            className="w-full cursor-pointer rounded-3xl mb-20 mt-auto h-14 bg-black text-white mx-auto"
+            className="w-full cursor-pointer text-16 rounded-[16px] py-5 mb-20 mt-8 bg-black-2 text-white mx-auto"
           >
             {loading ? <ButtonLoading /> : "Pay"}
           </button>

@@ -36,6 +36,7 @@ const handler = async (req: Request) => {
     const userCourse = new UserCourse({
       userId: userId,
       courseId: courseId,
+      courseName: courseName,
       amount: courseAmount,
     });
 

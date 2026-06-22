@@ -46,7 +46,7 @@ const page = async ({
   const userData = await userRes.json();
   return (
     <div>
-      <NavBar />
+      <NavBar name={`Payment for ${paramBody.coursename}`} />
       <PaymentMain user={userData.user} course={data.course} />
     </div>
   );
