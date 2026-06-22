@@ -26,7 +26,7 @@ const handler = async (req: Request) => {
   const data = await response.json();
     const payment = data.data;
   const orderId = payment.metadata.orderId;
-
+ const userCourse = await UserCourse.findById(orderId)
   if (!data.status || data.data.status !== "success") {
     return NextResponse.json({
       status: "error",
@@ -54,13 +54,6 @@ const handler = async (req: Request) => {
     });
   }
 
-  if (userCourse.paymentStatus === "paid") {
-    return NextResponse.json({
-      status: "error",
-      course: userCourse,
-      message: "Course has been paid for",
-    });
-  }
 
 
   userCourse.paymentStatus = "paid";
