@@ -128,7 +128,9 @@ const LoginMain = () => {
           <Link href="/auth/forgot-password">Forgot Password?</Link>
         </div>
         {message && (
-          <div className="my-3 text-red-500 w-full text-center">{message}</div>
+          <div className="my-3 text-red-500 w-full text-left px-2">
+            {message}
+          </div>
         )}
         <button
           className="cursor-pointer flex text-[16px] justify-center items-center p-2 shrink-0 text-sm w-full focus:outline-none py-5 my-3 rounded-[32px] bg-black-3 text-white"

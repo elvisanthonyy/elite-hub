@@ -88,7 +88,7 @@ const GetNewLink = () => {
 
         {message && (
           <div
-            className={`text-[14px] ${error ? "text-red-500" : "text-green-600"}`}
+            className={`text-[14px] text-left w-full px-2 ${error ? "text-red-500" : "text-green-600"}`}
           >
             {message}
           </div>
