@@ -18,10 +18,7 @@ const MyCoursesMain = ({ myCourses }: ChildProps) => {
   return (
     <div className="flex flex-col items-center py-10 w-full mx-auto mt-22 bg-white h-dvh">
       {myCourses?.map((myCourse, index) => (
-        <div
-          className="w-[87%] mx-auto"
-          key={myCourse?.courseId._id.toString()}
-        >
+        <div className="w-full px-4" key={myCourse?.courseId._id.toString()}>
           <MyCoursesComp index={index} myCourse={myCourse} />
         </div>
       ))}

@@ -29,7 +29,7 @@ const MyCoursesComp = ({ myCourse, index }: ChildProps) => {
 
   return (
     <div
-      className={`flex p-5 text-white justify-between mb-5 w-full h-35 rounded-2xl bg-linear-to-br ${mainColor}`}
+      className={`flex p-5 text-white justify-between mb-5 w-full h-35 rounded-2xl bg-black-3`}
     >
       <div className=" h-full flex flex-col">
         <div className="text-xl mb-5 font-bold">{mainCourseName}</div>
@@ -38,7 +38,7 @@ const MyCoursesComp = ({ myCourse, index }: ChildProps) => {
           <button
             onClick={() =>
               router.push(
-                `/${myCourse.courseName}/payment?redirectUrl=${myCourse.userCourseId._id}`
+                `/${myCourse.courseName}/payment?redirectUrl=${myCourse.userCourseId._id}`,
               )
             }
             className="cursor-pointer w-20 h-10 mt-auto bg-white text-black text-sm rounded-lg"
