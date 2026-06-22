@@ -24,6 +24,8 @@ const handler = async (req: Request) => {
   );
 
   const data = await response.json();
+    const payment = data.data;
+  const orderId = payment.metadata.orderId;
 
   if (!data.status || data.data.status !== "success") {
     return NextResponse.json({
@@ -33,8 +35,7 @@ const handler = async (req: Request) => {
     });
   }
 
-  const payment = data.data;
-  const orderId = payment.metadata.orderId;
+
 
   if (!orderId) {
     return NextResponse.json({
@@ -44,8 +45,7 @@ const handler = async (req: Request) => {
     });
   }
 
-  //getting user course and setting status to piad
-  const userCourse = await UserCourse.findById(orderId);
+
   if (!userCourse) {
     return NextResponse.json({
       status: "error",
