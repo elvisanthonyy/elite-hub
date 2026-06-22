@@ -23,7 +23,7 @@ export async function sendVerificationMessage(
       from: `"ELITE HUB GLOBAL" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Verify Email",
-      html: `<div style="width: 100%; display: block; padding-bottom: 20px; height: fit-content; align-items: center;"><h2 style="font: bold; font-size: 30px; border: 3px solid white; margin: 0px auto;  margin-bottom: 60px; border-radius: 8px; padding: 30px 0px; text-align: center; width: 90%; color: #03a3ff;">ELITE HUB</h2>
+      html: `<div style="width: 100%; aspect-ratio: 1/1; display: block; padding-bottom: 20px; height: fit-content; align-items: center;"><h2 style="font: bold; font-size: 30px; border: 3px solid white; margin: 0px auto;  margin-bottom: 60px; border-radius: 8px; padding: 30px 0px; text-align: center; width: 90%; color: #03a3ff;"><img src="https://www.elitehub.com.ng/icons/elite-logo.svg" alt="logo" style="width: 100px; height: 100px;" /></h2>
       <h3 style="margin-bottom: 20px; text-align: center; width: 100%;">Your verification link</h3>
       <p style="margin-bottom: 5px; font-size: 16px; text-align: center; width: 100%;">This is your verification link <a style="color: #03a3ff;" href="${
         process.env.BASE_URL

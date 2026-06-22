@@ -10,6 +10,7 @@ import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 interface FormFields {
   name: string;
@@ -70,7 +71,7 @@ const SignUpMain = () => {
         <div className="font-bold text-[24px]">Sign Up</div>
       </div>
       <form
-        className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
+        className="flex flex-col mb-4 items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         {errors.name && <InputError message={errors.name.message} />}
@@ -79,7 +80,7 @@ const SignUpMain = () => {
             <FaUser className="" />
           </div>
           <input
-            className="flex shrink-0 text-black-3 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
+            className="flex shrink-0 text-black-3 text-[16px] text-sm w-full focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
             {...register("name", {
               required: "name is required",
             })}
@@ -92,7 +93,7 @@ const SignUpMain = () => {
             <FaEnvelope className="" />
           </div>
           <input
-            className="flex shrink-0 text-black-3 text-[16px] text-sm w-[98%] focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
+            className="flex shrink-0 text-black-3 text-[16px] text-sm w-full focus:outline-none py-3.5 px-9 bg-white-2 rounded-[16px]"
             {...register("email", {
               required: "email is required",
               pattern: {
@@ -145,7 +146,22 @@ const SignUpMain = () => {
           {loading ? <ButtonLoading /> : "Sign Up"}
         </button>
       </form>
-      <div className="flex items-center">
+      <div className="flex w-[70%] items-center gap-4 text-[16px] text-black-3 mb-4">
+        <div className="h-px bg-black-5 flex-1"></div>
+        <div className="font-semibold">Or</div>
+        <div className="h-px bg-black-5 flex-1"></div>
+      </div>
+      <div className="flex items-center text-[16px] text-black-3 mb-4">
+        <Link className="flex items-center" href="/auth/login">
+          <div className="mr-2 text-[32px]">
+            <FcGoogle />
+          </div>
+          <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">
+            Sign Up With Google
+          </div>
+        </Link>
+      </div>
+      <div className="flex items-center text-[16px] text-black-3">
         Have an account?
         <Link className="ml-2" href="/auth/login">
           <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">

@@ -12,6 +12,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 interface FormFields {
   email: string;
@@ -76,7 +77,7 @@ const LoginMain = () => {
       </div>
 
       <form
-        className="flex flex-col items-center w-full mt-8 bg-white rounded-lg px-4"
+        className="flex flex-col mb-4 items-center w-full mt-8 bg-white rounded-lg px-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         {errors.email && <InputError message={errors.email.message} />}
@@ -136,10 +137,25 @@ const LoginMain = () => {
           {loading ? <ButtonLoading /> : "Login"}
         </button>
       </form>
-      <div className="flex items-center">
+      <div className="flex w-[70%] items-center gap-4 text-[16px] text-black-3 mb-4">
+        <div className="h-px bg-black-5 flex-1"></div>
+        <div className="font-semibold">Or</div>
+        <div className="h-px bg-black-5 flex-1"></div>
+      </div>
+      <div className="flex items-center text-[16px] text-black-3 mb-4">
+        <Link className="flex items-center" href="/auth/login">
+          <div className="mr-2 text-[32px]">
+            <FcGoogle />
+          </div>
+          <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">
+            Login With Google
+          </div>
+        </Link>
+      </div>
+      <div className="flex items-center text-[16px] text-black-3">
         Don't have an account?
         <Link className="ml-2" href="/auth/signup">
-          <div className="my-3 cursor-pointer w-full flex justify-center items-center rounded-xl">
+          <div className="my-3 underline cursor-pointer w-full flex justify-center items-center rounded-xl">
             Sign Up
           </div>
         </Link>
