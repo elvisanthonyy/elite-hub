@@ -14,6 +14,7 @@ const handler = async (req: Request) => {
         message: "could not complete",
       });
     }
+
     if (user.isVerified) {
       user.isVerified = true;
       user.verificationToken = "";

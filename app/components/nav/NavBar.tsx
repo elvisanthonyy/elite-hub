@@ -8,9 +8,10 @@ import BottomNav from "./BottomNav";
 
 interface ChildProps {
   name?: string;
+  pageName?: string;
 }
 
-const NavBar = ({ name }: ChildProps) => {
+const NavBar = ({ name, pageName }: ChildProps) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
@@ -27,10 +28,12 @@ const NavBar = ({ name }: ChildProps) => {
               className="w-[32px]"
             />
           </div>
-          <div className="text-lg text-black-2 font-bold">Elite Hub</div>
+          <div className="text-[20px] text-black-4 font-bold">Elite Hub</div>
         </div>
 
-        {name !== "home" && name !== "dashboard" ? <BottomNav /> : null}
+        {name !== "home" && name !== "dashboard" ? (
+          <BottomNav pageName={pageName || ""} />
+        ) : null}
         <div
           onClick={() =>
             isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)

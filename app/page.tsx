@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <div className="relative">
       <NavBar name="home" />
-      <div className="flex flex-col relative pt-32 pb-12 px-4 text-white justify-center items-start w-full h-auto min-h-dvh bg-linear-0 from-white-1 to-hero-gradient/30">
+      <div className="flex flex-col relative pt-28 pb-12 px-6 text-white justify-center items-start w-full h-auto min-h-dvh bg-linear-0 from-white-1 to-hero-gradient/30">
         <div className="w-full h-auto ">
           <div className="flex flex-col mb-8">
             <div className="text-[32px] mb-2 text-black-2 font-bold">
@@ -90,7 +90,7 @@ export default function Home() {
           )}
         </div>
 
-        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-18">
+        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-14">
           <div className="w-full flex justify-center ">
             <Image
               src={"/designs/ellipse.svg"}

@@ -18,7 +18,7 @@ const page = async () => {
   console.log(data);
   return (
     <div>
-      <NavBar />
+      <NavBar pageName="All Courses" />
       <AllCoursesMain courses={data.courses} />
     </div>
   );

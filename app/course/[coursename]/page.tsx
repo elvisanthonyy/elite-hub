@@ -41,7 +41,7 @@ const page = async ({
   return (
     <div className="">
       <CourseMain user={userData?.user} course={data.course} />
-      <NavBar />
+      <NavBar pageName={paramBody?.coursename} />
     </div>
   );
 };

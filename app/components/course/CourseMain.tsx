@@ -73,7 +73,7 @@ const CourseMain = ({ course, user }: ChildProps) => {
   }, []);
 
   return (
-    <div className="z-40 flex mt-4 flex-col items-center min-h-[90dvh] rounded-lg w-full px-4">
+    <div className="z-40 flex mt-4 flex-col items-center min-h-[90dvh] rounded-lg w-full px-8">
       <div className="w-full">
         <div className="flex mb-3 items-center justify-between w-full">
           <div className="mt-30 text-[24px] font-bold text-black-2">

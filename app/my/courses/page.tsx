@@ -34,7 +34,7 @@ const page = async () => {
   console.log(data);
   return (
     <div>
-      <NavBar name="myCourses" />
+      <NavBar pageName="My Courses" />
       <MyCoursesMain myCourses={data.user?.courses} />
     </div>
   );

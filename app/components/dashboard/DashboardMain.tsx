@@ -3,6 +3,7 @@ import { Course } from "../course/MyCoursesMain";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ChildProps {
   user: {
@@ -44,7 +45,11 @@ const DashboardMain = ({ user }: ChildProps) => {
         </div>
         <div className="w-[138px] aspect-square rounded-full bg-primary-3 z-10 blur-[50px] absolute -bottom-15 -right-12"></div>
       </div>
-      <div className="absolute flex items-center bottom-8 right-4 p-4 bg-primary-3 text-white rounded-[8px]">
+
+      <Link
+        href="/course/all"
+        className="absolute flex items-center bottom-8 right-4 p-4 bg-primary-3 text-white rounded-[8px]"
+      >
         <div className="w-[22px] aspect-square mr-3">
           <Image
             src={"/icons/plus-icon.svg"}
@@ -56,7 +61,7 @@ const DashboardMain = ({ user }: ChildProps) => {
           />
         </div>{" "}
         Add course
-      </div>
+      </Link>
     </div>
   );
 };
