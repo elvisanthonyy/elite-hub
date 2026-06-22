@@ -90,7 +90,9 @@ export default function Home() {
           )}
         </div>
 
-        <div className="w-full h-[417px] py-8 flex items-center justify-center relative mt-14">
+        <div
+          className={`w-full h-[417px] py-8 flex items-center justify-center relative ${!session && "mt-14"}`}
+        >
           <div className="w-full flex justify-center ">
             <Image
               src={"/designs/ellipse.svg"}
