@@ -27,21 +27,28 @@ const handler = async (req: Request) => {
     const payment = data.data;
   const orderId = payment.metadata.orderId;
  const userCourse = await UserCourse.findById(orderId)
-  if (!data.status || data.data.status !== "success") {
-    return NextResponse.json({
-      status: "error",
-      course: userCourse,
-      message: "Payment failed",
-    });
-  }
-
-
 
   if (!orderId) {
     return NextResponse.json({
       status: "error",
       course: userCourse,
       message: "missing orderId",
+    });
+  }
+
+   if (userCourse.paymentStatus === "paid") {
+    return NextResponse.json({
+      status: "error",
+      course: userCourse,
+      message: "Course has already been paid for",
+    });
+  }
+
+  if (!data.status || data.data.status !== "success") {
+    return NextResponse.json({
+      status: "error",
+      course: userCourse,
+      message: "Payment failed",
     });
   }
 
