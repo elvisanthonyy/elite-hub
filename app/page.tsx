@@ -93,7 +93,7 @@ export default function Home() {
         <div
           className={`w-full h-[340px] flex items-end relative ${!session && "mt-10"}`}
         >
-          <div className="relative w-full h-[88%] rounded-[24px] bg-primary-3 overflow-hidden">
+          <div className="relative w-full h-[88%] rounded-[24px] bg-primary-2 overflow-hidden">
             <div className="bg-white/30 absolute -left-10 -top-10 blur-xl h-50 rounded-full aspect-square"></div>
             <div className="bg-black/30 absolute -right-10 -bottom-10 blur-xl h-50 rounded-full aspect-square"></div>
           </div>
