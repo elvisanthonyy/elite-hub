@@ -94,8 +94,8 @@ export default function Home() {
           className={`w-full h-[340px] flex items-end relative ${!session && "mt-10"}`}
         >
           <div className="relative w-full h-60 rounded-[24px] bg-primary-2 overflow-hidden">
-            <div className="bg-white/50 absolute -left-10 -top-10 blur-xl h-30 rounded-full aspect-square"></div>
-            <div className="bg-black/50 absolute -right-10 -bottom-10 blur-xl h-30 rounded-full aspect-square"></div>
+            <div className="bg-white/30 absolute -left-10 -top-10 blur-xl h-40 rounded-full aspect-square"></div>
+            <div className="bg-black/50 absolute -right-10 -bottom-10 blur-xl h-40 rounded-full aspect-square"></div>
           </div>
 
           <div className="absolute pl-2 overflow-hidden items-start justify-center w-full h-full  top-[50%] left-[50%] -translate-[50%] flex ">
