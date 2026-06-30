@@ -98,13 +98,13 @@ export default function Home() {
             <div className="bg-black/30 absolute -right-10 -bottom-10 blur-xl h-50 rounded-full aspect-square"></div>
           </div>
 
-          <div className="absolute pl-2 overflow-hidden items-start justify-center w-full h-full  top-[50%] left-[50%] -translate-[50%] flex ">
+          <div className="absolute overflow-hidden items-start justify-center w-full h-full  top-[50%] left-[50%] -translate-[50%] flex ">
             <Image
               src={"/designs/person-image.png"}
               alt="laptop image"
               height={1000}
               width={1000}
-              className="w-[130%] h-[130%] object-cover"
+              className="w-[160%] ml-4 -mt-8 h-[175%] object-cover"
             />
           </div>
         </div>
